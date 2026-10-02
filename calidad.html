@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Calidad del Software | VELORA — SGCS 2026</title>
+    <meta name="description" content="Aprende fundamentos ISO 9126/25000, técnicas de aseguramiento y herramientas QA con el módulo interactivo de VELORA.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <!-- ========== HEADER ========== -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <div class="logo-container">
+                    <a href="index.html"><img src="img/VELORA-N.png" alt="Logotipo VELORA" class="logo-img" id="headerLogo"></a>
+                </div>
+
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link" data-page="index.html">Inicio</a></li>
+                    <li class="nav-item-dropdown">
+                        <a href="calidad.html" class="nav-link" data-page="calidad.html">
+                            Módulo Calidad
+                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        </a>
+                        <div class="dropdown-menu">
+                            <span class="dropdown-header">Módulo Sprint 1</span>
+                            <a href="calidad.html" class="dropdown-item">
+                                <span class="dropdown-item-title">📖 Ver Módulo Completo</span>
+                                <span class="dropdown-item-desc">Estás en esta página (calidad.html)</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <span class="dropdown-header">Secciones en esta página</span>
+                            <a href="#fundamentos" class="dropdown-item">
+                                <span class="dropdown-item-title">📜 Fundamentos ISO</span>
+                                <span class="dropdown-item-desc">Normas ISO 9126 y 25000</span>
+                            </a>
+                            <a href="#tecnicas" class="dropdown-item">
+                                <span class="dropdown-item-title">🔄 Técnicas QA</span>
+                                <span class="dropdown-item-desc">8 Flip-cards interactivas</span>
+                            </a>
+                            <a href="#herramientas" class="dropdown-item">
+                                <span class="dropdown-item-title">🛠️ Herramientas QA</span>
+                                <span class="dropdown-item-desc">Filtro dinámico de 12 tools</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li><a href="nosotros.html" class="nav-link" data-page="nosotros.html">Sobre Nosotros</a></li>
+                </ul>
+
+                <div class="nav-cta">
+                    <a href="nosotros.html" class="btn btn-secondary">Sobre el Equipo →</a>
+                </div>
+
+                <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+                    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5" />
+                        <line x1="12" y1="1" x2="12" y2="3" />
+                        <line x1="12" y1="21" x2="12" y2="23" />
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                        <line x1="1" y1="12" x2="3" y2="12" />
+                        <line x1="21" y1="12" x2="23" y2="12" />
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                    </svg>
+                    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                    </svg>
+                </button>
+
+                <button class="hamburger" id="hamburger" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobileNav" type="button">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Subnav de secciones internas (solo en calidad.html para clarificar la navegación) -->
+    <div class="subnav" aria-label="Navegación interna de secciones de calidad">
+        <div class="container subnav-container">
+            <span class="subnav-label">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
+                En esta página:
+            </span>
+            <ul class="subnav-links">
+                <li><a href="#fundamentos" class="subnav-link active">📜 Fundamentos ISO</a></li>
+                <li><a href="#tecnicas" class="subnav-link">🔄 Técnicas QA</a></li>
+                <li><a href="#herramientas" class="subnav-link">🛠️ Herramientas</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-group">
+            <span class="mobile-nav-heading">Páginas del Portal</span>
+            <a href="index.html" class="mobile-nav-link" data-page="index.html">
+                <span>🏠 Inicio</span>
+                <span class="mobile-nav-badge">Página</span>
+            </a>
+            <a href="calidad.html" class="mobile-nav-link" data-page="calidad.html">
+                <span>📚 Módulo Calidad</span>
+                <span class="mobile-nav-badge">Página actual</span>
+            </a>
+            <div class="mobile-sublinks">
+                <a href="#fundamentos" class="mobile-sublink">↳ Fundamentos ISO (US-02)</a>
+                <a href="#tecnicas" class="mobile-sublink">↳ Técnicas QA (US-03)</a>
+                <a href="#herramientas" class="mobile-sublink">↳ Herramientas QA (US-04)</a>
+            </div>
+            <a href="nosotros.html" class="mobile-nav-link" data-page="nosotros.html">
+                <span>👥 Sobre Nosotros</span>
+                <span class="mobile-nav-badge">Página</span>
+            </a>
+        </div>
+
+        <div class="mobile-nav-divider"></div>
+
+        <a href="index.html" class="btn btn-secondary">← Volver al Inicio</a>
+    </div>
+
+    <main>
+
+        <!-- ========== HERO (US-02 intro) ========== -->
+        <section class="hero" id="calidad-hero">
+            <div class="container">
+                <div class="hero-content">
+                    <span class="tech-badge">📚 US-02 · US-03 · US-04 — Sprint 1</span>
+                    <h1>Gestión de la <span class="gradient-text">Calidad del Software</span></h1>
+                    <p>Explora los estándares internacionales, las técnicas de aseguramiento y las herramientas utilizadas por equipos QA profesionales.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== US-02: FUNDAMENTOS (ISO Tabs) ========== -->
+        <section class="modules" id="fundamentos">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Fundamentos de Calidad</h2>
+                    <p>Conceptos clave: definición de calidad, control vs. aseguramiento y estándares ISO.</p>
+                </div>
+
+                <div class="tabs-container">
+                    <div class="tabs-nav" role="tablist" aria-label="Estándares de calidad">
+                        <button class="tab-btn" role="tab" data-tab="conceptos" aria-controls="conceptos" id="tab-conceptos">Conceptos Clave</button>
+                        <button class="tab-btn" role="tab" data-tab="iso9126" aria-controls="iso9126" id="tab-iso9126">ISO/IEC 9126</button>
+                        <button class="tab-btn" role="tab" data-tab="iso25000" aria-controls="iso25000" id="tab-iso25000">ISO/IEC 25000 (SQuaRE)</button>
+                        <button class="tab-btn" role="tab" data-tab="metricas" aria-controls="metricas" id="tab-metricas">Métricas</button>
+                    </div>
+
+                    <!-- Tab: Conceptos -->
+                    <div class="tab-panel" id="conceptos" role="tabpanel" aria-labelledby="tab-conceptos">
+                        <div class="content-grid">
+                            <div class="content-card">
+                                <span class="tag">Definición</span>
+                                <h4>¿Qué es la Calidad de Software?</h4>
+                                <p>El grado en que un sistema satisface los requisitos especificados, las necesidades del usuario y las expectativas implícitas del cliente.</p>
+                            </div>
+                            <div class="content-card">
+                                <span class="tag">Control</span>
+                                <h4>Control de Calidad (QC)</h4>
+                                <p>Proceso <strong>reactivo</strong>: verifica que el producto terminado cumple los estándares. Incluye inspección, pruebas y revisión de código.</p>
+                            </div>
+                            <div class="content-card">
+                                <span class="tag">Aseguramiento</span>
+                                <h4>Aseguramiento de Calidad (QA)</h4>
+                                <p>Proceso <strong>proactivo</strong>: define y mejora los procesos de desarrollo para prevenir defectos antes de que ocurran.</p>
+                            </div>
+                            <div class="content-card">
+                                <span class="tag">Diferencia clave</span>
+                                <h4>QC vs. QA</h4>
+                                <p>QC se enfoca en el <em>producto</em> (¿es correcto?). QA se enfoca en el <em>proceso</em> (¿estamos trabajando bien?). Ambos son complementarios.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab: ISO 9126 -->
+                    <div class="tab-panel" id="iso9126" role="tabpanel" aria-labelledby="tab-iso9126">
+                        <div class="content-grid">
+                            <div class="content-card">
+                                <span class="tag">ISO 9126</span>
+                                <h4>Funcionalidad</h4>
+                                <p>El software hace lo que el usuario necesita: adecuación, exactitud, interoperabilidad, seguridad y conformidad.</p>
+                            </div>
+                            <div class="content-card">
+                                <span class="tag">ISO 9126</span>
+                                <h4>Confiabilidad</h4>
+                                <p>Capacidad de mantener el nivel de desempeño bajo condiciones establecidas: madurez, tolerancia a fallos y recuperabilidad.</p>
+                            </div>
+                            <div class="content-card">
+                                <span class="tag">ISO 9126</span>
+                                <h4>Usabilidad</h4>
+                                <p>Esfuerzo requerido para usar el sistema: comprensibilidad, facilidad de aprendizaje, operabilidad y atractivo.</p>
+                            </div>
+                            <div class="content-card">
+                                <span class="tag">ISO 9126</span>
+                                <h4>Eficiencia</h4>
+                                <p>Relación entre el nivel de desempeño y los recursos usados: comportamiento temporal y utilización de recursos.</p>
+                            </div>
+                            <div class="content-card">
+                                <span class="tag">ISO 9126</span>
+                                <h4>Mantenibilidad</h4>
+                                <p>Facilidad de modificación: analizabilidad, cambiabilidad, estabilidad y testabilidad.</p>
+                            </div>
+                            <div class="content-card">
+                                <span class="tag">ISO 9126</span>
+                                <h4>Portabilidad</h4>
+                                <p>Capacidad de ser transferido a otro entorno: adaptabilidad, instalabilidad, coexistencia y reemplazabilidad.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab: ISO 25000 -->
+                    <div class="tab-panel" id="iso25000" role="tabpanel" aria-labelledby="tab-iso25000">
+                        <div class="content-grid">
+                            <div class="content-card">
+                                <span class="tag">SQuaRE</span>
+                                <h4>¿Qué es ISO/IEC 25000?</h4>
+                                <p>Software Quality Requirements and Evaluation. Evolución de ISO 9126 que proporciona un marco unificado para la evaluación y requisitos de calidad.</p>
+                            </div>
+                            <div class="content-card">
+                                <span class="tag">División 2501n</span>
+                                <h4>Modelo de Calidad</h4>
+                                <p>Define características: adecuación funcional, eficiencia de desempeño, compatibilidad, usabilidad, confiabilidad, seguridad, mantenibilidad y portabilidad.</p>
+                            </div>
+                            <div class="content-card">
+                                <span class="tag">División 2502n</span>
+                                <h4>Medición de Calidad</h4>
+                                <p>Métricas internas (código fuente), externas (comportamiento del sistema) y en uso (satisfacción del usuario en contexto real).</p>
+                            </div>
+                            <div class="content-card">
+                                <span class="tag">División 2504n</span>
+                                <h4>Evaluación de Calidad</h4>
+                                <p>Proceso de 5 pasos: definir requisitos → especificar evaluación → diseñar evaluación → ejecutar → concluir con evidencia objetiva.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab: Métricas -->
+                    <div class="tab-panel" id="metricas" role="tabpanel" aria-labelledby="tab-metricas">
+                        <div class="content-grid">
+                            <div class="content-card">
+                                <span class="tag">Densidad</span>
+                                <h4>Densidad de Defectos</h4>
+                                <p>Defectos encontrados / KLOC (1000 líneas de código). Indica la concentración de bugs en el código base.</p>
+                            </div>
+                            <div class="content-card">
+                                <span class="tag">Cobertura</span>
+                                <h4>Cobertura de Pruebas</h4>
+                                <p>% de código ejecutado por las pruebas automatizadas. Una cobertura alta (&gt;80%) reduce el riesgo de regresiones.</p>
+                            </div>
+                            <div class="content-card">
+                                <span class="tag">MTBF</span>
+                                <h4>Tiempo Medio entre Fallos</h4>
+                                <p>Promedio de tiempo que el sistema opera sin fallos. Un MTBF alto indica alta confiabilidad del sistema.</p>
+                            </div>
+                            <div class="content-card">
+                                <span class="tag">Complejidad</span>
+                                <h4>Complejidad Ciclomática</h4>
+                                <p>Número de caminos linealmente independientes en el código. Valores &gt;10 indican código difícil de testear y mantener.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== US-03: TÉCNICAS DE ASEGURAMIENTO (Flip-Cards) ========== -->
+        <section class="tools-section" id="tecnicas" style="background: var(--bg-secondary);">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Técnicas de Aseguramiento de la Calidad</h2>
+                    <p>Haz clic en cada tarjeta para ver la descripción detallada de cada técnica.</p>
+                </div>
+
+                <p class="flip-hint">👆 Toca una tarjeta para girarla</p>
+
+                <div class="flip-grid">
+                    <!-- Caja Negra -->
+                    <div class="flip-card" aria-label="Prueba de Caja Negra">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+                                <h4>Caja Negra</h4>
+                                <p>Prueba funcional</p>
+                            </div>
+                            <div class="flip-card-back">
+                                <h4>Caja Negra</h4>
+                                <p>Prueba el comportamiento externo del sistema sin conocer la estructura interna. Se basa en entradas y salidas esperadas.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Caja Blanca -->
+                    <div class="flip-card" aria-label="Prueba de Caja Blanca">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+                                <h4>Caja Blanca</h4>
+                                <p>Prueba estructural</p>
+                            </div>
+                            <div class="flip-card-back">
+                                <h4>Caja Blanca</h4>
+                                <p>Prueba la estructura interna del código. El tester conoce el código fuente y diseña casos para cubrir todos los caminos lógicos.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Prueba Unitaria -->
+                    <div class="flip-card" aria-label="Prueba Unitaria">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12"/></svg>
+                                <h4>Prueba Unitaria</h4>
+                                <p>Nivel de componente</p>
+                            </div>
+                            <div class="flip-card-back">
+                                <h4>Prueba Unitaria</h4>
+                                <p>Verifica el funcionamiento de unidades individuales de código (funciones, métodos, clases) de forma aislada. Usa mocks para dependencias.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Prueba de Integración -->
+                    <div class="flip-card" aria-label="Prueba de Integración">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+                                <h4>Integración</h4>
+                                <p>Nivel de módulos</p>
+                            </div>
+                            <div class="flip-card-back">
+                                <h4>Prueba de Integración</h4>
+                                <p>Verifica la interacción entre módulos o componentes. Detecta problemas de interfaces, comunicación e intercambio de datos.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Prueba de Sistema -->
+                    <div class="flip-card" aria-label="Prueba de Sistema">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                                <h4>Sistema</h4>
+                                <p>Nivel de sistema completo</p>
+                            </div>
+                            <div class="flip-card-back">
+                                <h4>Prueba de Sistema</h4>
+                                <p>Evalúa el sistema completo e integrado para verificar que cumple los requisitos especificados, en un ambiente similar al de producción.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Prueba de Aceptación -->
+                    <div class="flip-card" aria-label="Prueba de Aceptación">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                <h4>Aceptación (UAT)</h4>
+                                <p>Nivel de usuario final</p>
+                            </div>
+                            <div class="flip-card-back">
+                                <h4>Prueba de Aceptación</h4>
+                                <p>Valida que el sistema cumple los criterios de aceptación del cliente. Es la última barrera antes de desplegar a producción.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Prueba Estática -->
+                    <div class="flip-card" aria-label="Prueba Estática">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                                <h4>Estática</h4>
+                                <p>Sin ejecución de código</p>
+                            </div>
+                            <div class="flip-card-back">
+                                <h4>Prueba Estática</h4>
+                                <p>Analiza el código o documentos sin ejecutarlos. Incluye revisiones de código, inspecciones, walkthroughs y análisis de linters.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Prueba Dinámica -->
+                    <div class="flip-card" aria-label="Prueba Dinámica">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                                <h4>Dinámica</h4>
+                                <p>Con ejecución de código</p>
+                            </div>
+                            <div class="flip-card-back">
+                                <h4>Prueba Dinámica</h4>
+                                <p>Ejecuta el programa con entradas de prueba y observa el comportamiento. Engloba todas las pruebas de caja negra y blanca en tiempo real.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== US-04: HERRAMIENTAS DE CALIDAD (Filtro JS) ========== -->
+        <section class="tools-section" id="herramientas">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Herramientas de Aseguramiento</h2>
+                    <p>Filtra por categoría para explorar las herramientas más usadas por equipos QA profesionales.</p>
+                </div>
+
+                <div class="filter-bar" role="group" aria-label="Filtrar herramientas">
+                    <button class="filter-btn" data-category="all">Todas</button>
+                    <button class="filter-btn" data-category="bug-tracker">Bug Trackers</button>
+                    <button class="filter-btn" data-category="linter">Linters / Análisis Estático</button>
+                    <button class="filter-btn" data-category="test-management">Gestión de Pruebas</button>
+                    <button class="filter-btn" data-category="automatizacion">Automatización</button>
+                </div>
+
+                <div class="tools-grid">
+                    <!-- Bug Trackers -->
+                    <div class="tool-card" data-category="bug-tracker">
+                        <div class="tool-logo">🐛</div>
+                        <div class="tool-name">Jira</div>
+                        <span class="tool-category-tag">Bug Tracker</span>
+                        <p class="tool-desc">Plataforma de gestión de proyectos ágiles con seguimiento de incidencias, sprints y tableros Kanban.</p>
+                    </div>
+                    <div class="tool-card" data-category="bug-tracker">
+                        <div class="tool-logo">🔍</div>
+                        <div class="tool-name">Bugzilla</div>
+                        <span class="tool-category-tag">Bug Tracker</span>
+                        <p class="tool-desc">Sistema de seguimiento de bugs open-source. Estándar en proyectos de código abierto con potente búsqueda de defectos.</p>
+                    </div>
+                    <div class="tool-card" data-category="bug-tracker">
+                        <div class="tool-logo">📋</div>
+                        <div class="tool-name">GitHub Issues</div>
+                        <span class="tool-category-tag">Bug Tracker</span>
+                        <p class="tool-desc">Sistema integrado de seguimiento en GitHub. Ideal para vincular issues directamente con commits y pull requests.</p>
+                    </div>
+
+                    <!-- Linters -->
+                    <div class="tool-card" data-category="linter">
+                        <div class="tool-logo">✅</div>
+                        <div class="tool-name">ESLint</div>
+                        <span class="tool-category-tag">Linter</span>
+                        <p class="tool-desc">Analizador estático para JavaScript/TypeScript. Detecta errores de estilo y posibles bugs sin ejecutar el código.</p>
+                    </div>
+                    <div class="tool-card" data-category="linter">
+                        <div class="tool-logo">🔬</div>
+                        <div class="tool-name">SonarQube</div>
+                        <span class="tool-category-tag">Linter</span>
+                        <p class="tool-desc">Plataforma de análisis estático multi-lenguaje. Detecta vulnerabilidades, code smells y calcula deuda técnica.</p>
+                    </div>
+                    <div class="tool-card" data-category="linter">
+                        <div class="tool-logo">🐍</div>
+                        <div class="tool-name">Pylint</div>
+                        <span class="tool-category-tag">Linter</span>
+                        <p class="tool-desc">Analizador de código Python que verifica errores, aplica convenciones PEP8 y detecta código duplicado o problemático.</p>
+                    </div>
+
+                    <!-- Test Management -->
+                    <div class="tool-card" data-category="test-management">
+                        <div class="tool-logo">📊</div>
+                        <div class="tool-name">TestRail</div>
+                        <span class="tool-category-tag">Gestión de Pruebas</span>
+                        <p class="tool-desc">Plataforma de gestión de casos de prueba. Centraliza planificación, ejecución y reporte de resultados de testing.</p>
+                    </div>
+                    <div class="tool-card" data-category="test-management">
+                        <div class="tool-logo">🗂️</div>
+                        <div class="tool-name">Zephyr</div>
+                        <span class="tool-category-tag">Gestión de Pruebas</span>
+                        <p class="tool-desc">Plugin de gestión de pruebas para Jira. Permite crear, organizar y ejecutar casos de prueba directamente en el ecosistema de Jira.</p>
+                    </div>
+
+                    <!-- Automatización -->
+                    <div class="tool-card" data-category="automatizacion">
+                        <div class="tool-logo">🤖</div>
+                        <div class="tool-name">Cypress</div>
+                        <span class="tool-category-tag">Automatización</span>
+                        <p class="tool-desc">Framework de pruebas E2E para aplicaciones web. Ejecución en tiempo real en el navegador con debugging visual integrado.</p>
+                    </div>
+                    <div class="tool-card" data-category="automatizacion">
+                        <div class="tool-logo">🎭</div>
+                        <div class="tool-name">Playwright</div>
+                        <span class="tool-category-tag">Automatización</span>
+                        <p class="tool-desc">Framework de Microsoft para pruebas cross-browser. Soporta Chromium, Firefox y WebKit con una sola API.</p>
+                    </div>
+                    <div class="tool-card" data-category="automatizacion">
+                        <div class="tool-logo">⚡</div>
+                        <div class="tool-name">Selenium</div>
+                        <span class="tool-category-tag">Automatización</span>
+                        <p class="tool-desc">Estándar histórico en automatización web. Soporta múltiples lenguajes (Java, Python, JS) y todos los navegadores principales.</p>
+                    </div>
+                    <div class="tool-card" data-category="automatizacion">
+                        <div class="tool-logo">🧪</div>
+                        <div class="tool-name">Jest</div>
+                        <span class="tool-category-tag">Automatización</span>
+                        <p class="tool-desc">Framework de pruebas unitarias de JavaScript/TypeScript. Zero-config, snapshot testing y cobertura de código integrada.</p>
+                    </div>
+
+                    <div class="no-results">No se encontraron herramientas para esta categoría.</div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <img src="img/VELORA-N.png" alt="VELORA Logo" class="logo-img" id="footerLogo">
+                    <p>Módulo de Gestión de Calidad del Software. Proyecto SGCS 2026 — Equipo VELORA.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Contenidos</h4>
+                    <ul>
+                        <li><a href="#fundamentos">Fundamentos ISO</a></li>
+                        <li><a href="#tecnicas">Técnicas QA</a></li>
+                        <li><a href="#herramientas">Herramientas</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="nosotros.html">Sobre VELORA</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Accesibilidad WCAG</a></li>
+                        <li><a href="#">Términos de Uso</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Cumplimiento WCAG 2.1 AA</p>
+                <p>© 2026 Equipo VELORA. Proyecto SGCS.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/navbar.js"></script>
+    <script src="js/quality-tabs.js"></script>
+    <script src="js/quality-cards.js"></script>
+    <script src="js/tools-filter.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

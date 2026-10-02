@@ -1,0 +1,474 @@
+/* ============================================
+   VELORA — Components
+   Cards, módulos, tabs, flip-cards, filtros,
+   badges, modales y microinteracciones
+   ============================================ */
+
+/* ---- Module Cards (Miller's Law) ---- */
+.modules {
+    padding: var(--space-section) 0;
+    background: var(--bg-main);
+}
+
+.module-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.module-card {
+    background: var(--surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.module-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 0;
+    background: var(--accent);
+    transition: var(--transition-smooth);
+    border-radius: 0 2px 2px 0;
+}
+
+.module-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-border);
+    box-shadow: var(--shadow-lg);
+}
+
+.module-card:hover::before {
+    height: 100%;
+}
+
+.module-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--accent-subtle);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    color: var(--accent);
+    flex-shrink: 0;
+}
+
+.module-status {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.module-card h3 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+}
+
+.module-card > p {
+    color: var(--text-muted);
+    margin-bottom: 1.75rem;
+    flex-grow: 1;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* ---- Team Cards (US-16) ---- */
+.team {
+    padding: var(--space-section) 0;
+    background: var(--bg-main);
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-lg);
+}
+
+.team-member {
+    text-align: center;
+    padding: 2.5rem var(--space-lg);
+    border-radius: var(--radius-xl);
+    background: var(--surface);
+    border: 1px solid var(--border-color);
+    transition: var(--transition-smooth);
+}
+
+.team-member:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-border);
+    box-shadow: var(--shadow-lg);
+}
+
+.member-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--text-on-accent);
+    border: 3px solid var(--bg-main);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-smooth);
+}
+
+.team-member:hover .member-avatar {
+    box-shadow: var(--shadow-lg);
+    transform: scale(1.05);
+}
+
+.member-role {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
+    display: block;
+}
+
+.member-desc {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.team-quote {
+    text-align: center;
+    margin-top: 3.5rem;
+    font-size: 1.35rem;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--accent);
+}
+
+/* ---- Tab Component (US-02) ---- */
+.tabs-container {
+    margin-top: var(--space-lg);
+}
+
+.tabs-nav {
+    display: flex;
+    gap: 0.5rem;
+    border-bottom: 2px solid var(--border-color);
+    margin-bottom: var(--space-lg);
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+}
+
+.tabs-nav::-webkit-scrollbar {
+    display: none;
+}
+
+.tab-btn {
+    padding: 0.75rem 1.25rem;
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    transition: var(--transition-smooth);
+    white-space: nowrap;
+    border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+}
+
+.tab-btn:hover {
+    color: var(--text-primary);
+    background: var(--accent-subtle);
+}
+
+.tab-btn.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+.tab-panel {
+    display: none;
+    animation: fadeIn 0.25s ease;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- Content cards inside tabs ---- */
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-top: var(--space-md);
+}
+
+.content-card {
+    background: var(--surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    transition: var(--transition-smooth);
+}
+
+.content-card:hover {
+    border-color: var(--accent-border);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.content-card h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+}
+
+.content-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.65;
+}
+
+.content-card .tag {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    background: var(--accent-subtle);
+    color: var(--accent);
+    border-radius: var(--radius-pill);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.75rem;
+}
+
+/* ---- Flip Cards (US-03) ---- */
+.flip-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    perspective: 1000px;
+}
+
+.flip-card {
+    height: 220px;
+    cursor: pointer;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.flip-card.flipped .flip-card-inner,
+.flip-card:focus .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 1px solid var(--border-color);
+}
+
+.flip-card-front {
+    background: var(--surface);
+}
+
+.flip-card-front svg {
+    width: 40px;
+    height: 40px;
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+
+.flip-card-front h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.flip-card-front p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.flip-card-back {
+    background: var(--accent);
+    border-color: var(--accent);
+    transform: rotateY(180deg);
+}
+
+.flip-card-back h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.75rem;
+}
+
+.flip-card-back p {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.5;
+}
+
+.flip-hint {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    margin-top: var(--space-sm);
+}
+
+/* ---- Tools Filter (US-04) ---- */
+.tools-section {
+    padding: var(--space-section) 0;
+    background: var(--bg-secondary);
+}
+
+.filter-bar {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: var(--space-lg);
+}
+
+.filter-btn {
+    padding: 0.5rem 1.1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-pill);
+    background: transparent;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.filter-btn:hover {
+    border-color: var(--accent-border);
+    color: var(--accent);
+    background: var(--accent-subtle);
+}
+
+.filter-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--text-on-accent);
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+.tool-card {
+    background: var(--surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.tool-card:hover {
+    border-color: var(--accent-border);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.tool-card.hidden {
+    display: none;
+}
+
+.tool-card.fade-in {
+    animation: fadeIn 0.3s ease forwards;
+}
+
+.tool-logo {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-sm);
+    background: var(--accent-subtle);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.tool-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.tool-category-tag {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    background: var(--accent-subtle);
+    color: var(--accent);
+    border-radius: var(--radius-pill);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    width: fit-content;
+}
+
+.tool-desc {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height: 1.55;
+}
+
+/* ---- No results message ---- */
+.no-results {
+    display: none;
+    text-align: center;
+    padding: var(--space-2xl);
+    color: var(--text-muted);
+    font-size: 1rem;
+    grid-column: 1 / -1;
+}
