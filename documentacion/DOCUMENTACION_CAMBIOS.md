@@ -1,38 +1,38 @@
 # Documentación de Cambios y Refactorización — Proyecto SGCS 2026
 
-> **Equipo:** VELORA · **Metodología:** SCRUM Ágil · **Sprint Actual:** Sprint 1 ✅ Completado
+> **Equipo:** VELORA · **Metodología:** SCRUM Ágil · **Sprint Actual:** Sprint 1 Completado
 
 ---
 
 ## Sprint 1 — Resumen de Entregas (US-01 · US-02 · US-03 · US-04 · US-16)
 
-### ✅ US-01: Página de Inicio e Introducción General (8 SP)
+### US-01: Página de Inicio e Introducción General (8 SP)
 - Layout base responsive con Hero section, grilla de módulos y sección de equipo.
 - Navbar sticky con glassmorphism (`backdrop-filter`), logo dinámico y botón de tema.
 - Menú hamburguesa animado (3 líneas → ✕) con cierre por tecla `Escape`.
 - `IntersectionObserver` para resaltar el link activo según la sección visible.
 - Scroll fluido nativo vía `scroll-behavior: smooth`.
 
-### ✅ US-02: Fundamentos de Calidad (5 SP)
+### US-02: Fundamentos de Calidad (5 SP)
 - Página: `calidad.html` con sección `#fundamentos`.
 - Componente de pestañas (Tabs) con 4 paneles: Conceptos Clave, ISO 9126, ISO 25000, Métricas.
 - Navegación de tabs por teclado: flechas ← → (implementado en `quality-tabs.js`).
 - Atributos ARIA correctos: `role="tab"`, `aria-selected`, `aria-controls`.
 
-### ✅ US-03: Técnicas de Aseguramiento de la Calidad (5 SP)
+### US-03: Técnicas de Aseguramiento de la Calidad (5 SP)
 - 8 flip-cards 3D con `perspective` y `transform: rotateY(180deg)`.
 - Soporte: click, touch (sin scroll accidental) y teclado (Space/Enter/Escape).
 - Atributos `aria-pressed` para estado de accesibilidad.
 - Contenido: Caja Negra, Caja Blanca, Unitaria, Integración, Sistema, Aceptación, Estática, Dinámica.
 
-### ✅ US-04: Herramientas de Calidad (8 SP)
+### US-04: Herramientas de Calidad (8 SP)
 - Barra de filtros con 5 categorías: Todas, Bug Trackers, Linters, Gestión, Automatización.
 - 12 tarjetas de herramientas: Jira, Bugzilla, GitHub Issues, ESLint, SonarQube, Pylint, TestRail, Zephyr, Cypress, Playwright, Selenium, Jest.
 - Filtrado en tiempo real con animación `fade-in` (sin recarga).
 - Mensaje "sin resultados" si una categoría está vacía.
 - Estado activo visual en el botón seleccionado.
 
-### ✅ US-16: Sección Sobre Nosotros (3 SP)
+### US-16: Sección Sobre Nosotros (3 SP)
 - Página: `nosotros.html` con team cards para Bruno, Gael e Iasser.
 - Sección de Misión, Visión y Valores con content-cards.
 - Microanimación de hover: `translateY(-4px)` + sombra + scale del avatar.
@@ -110,9 +110,9 @@ Los scripts se organizaron como **ES Modules** (`type="module"`):
 
 ```text
 Zeballitos/
-├── index.html                  ✅ US-01 (home, nav, módulos)
-├── calidad.html                ✅ US-02 · US-03 · US-04
-├── nosotros.html               ✅ US-16
+├── index.html                  US-01 (home, nav, módulos)
+├── calidad.html                US-02 · US-03 · US-04
+├── nosotros.html               US-16
 │
 ├── css/
 │   ├── styles.css              → Orquestador (@import)
@@ -211,10 +211,10 @@ Zeballitos/
 
 3. **Menú Desplegable (Dropdown) para el Módulo de Calidad:**
    - Permite al usuario en cualquier página ver que "Calidad" es una página completa con tres subsecciones:
-     - 📖 Ver Módulo Completo (`calidad.html`)
-     - 📜 Fundamentos ISO (`calidad.html#fundamentos`)
-     - 🔄 Técnicas QA (`calidad.html#tecnicas`)
-     - 🛠️ Herramientas QA (`calidad.html#herramientas`)
+     - Ver Módulo Completo (`calidad.html`)
+     - Fundamentos ISO (`calidad.html#fundamentos`)
+     - Técnicas QA (`calidad.html#tecnicas`)
+     - Herramientas QA (`calidad.html#herramientas`)
 
 4. **Barra Secundaria de Secciones (Subnav) en `calidad.html`:**
    - Barra fija/sticky debajo del header exclusiva para navegar dentro de `calidad.html`.

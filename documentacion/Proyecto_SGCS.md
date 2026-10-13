@@ -16,7 +16,7 @@ Comparador de Metodologías: Una sección interactiva donde los usuarios puedan 
 Encuesta de Preferencias Metodológicas: Una encuesta interactiva con preguntas sobre las características de un proyecto de software (tamaño, complejidad, requisitos cambiantes, etc.) que, al finalizar, sugiera qué tipo de metodología (tradicional o ágil) podría ser más adecuada
 
 
-📜 PILA DE PRODUCTO DETALLADA (PRODUCT BACKLOG)
+PILA DE PRODUCTO DETALLADA (PRODUCT BACKLOG)
 1. Sección "Inicio"
     • US-01: Página de Inicio e Introducción General
         ◦ Requerimiento del Usuario: Como usuario, quiero ver la página de inicio para obtener una presentación general del sitio, una breve introducción a sus temas principales y un acceso rápido a las secciones más importantes. 

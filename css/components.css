@@ -438,6 +438,12 @@
     flex-shrink: 0;
 }
 
+.tool-logo svg {
+    width: 22px;
+    height: 22px;
+    stroke: var(--accent);
+}
+
 .tool-name {
     font-size: 1rem;
     font-weight: 700;

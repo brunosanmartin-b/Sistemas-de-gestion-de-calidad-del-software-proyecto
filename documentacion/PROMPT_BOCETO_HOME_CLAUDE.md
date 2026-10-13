@@ -1,4 +1,4 @@
-# 🤖 GUÍA Y PROMPT ESTRUCTURADO PARA CLAUDE: BOCETO DE LA PÁGINA PRINCIPAL (HOME)
+# GUÍA Y PROMPT ESTRUCTURADO PARA CLAUDE: BOCETO DE LA PÁGINA PRINCIPAL (HOME)
 
 > **Instrucción de uso:** Copia y pega el contenido completo del bloque delimitado a continuación directamente en **Claude** para que genere el código completo (HTML5, CSS3 y JavaScript) del boceto de la página de inicio.
 
@@ -54,7 +54,7 @@ La página debe incluir de forma estructurada y semántica las siguientes seccio
 - **Menú hamburguesa responsive** totalmente funcional con JavaScript para dispositivos móviles y tablets.
 
 #### B. Hero Section (Portada de Alto Impacto):
-- Badge superior tecnológico: *"🚀 PORTAL EDUCATIVO SGCS 2026 • EQUIPO VELORA"*.
+- Badge superior tecnológico: *"PORTAL EDUCATIVO SGCS 2026 • EQUIPO VELORA"*.
 - Título Principal (`<h1>`) contundente con palabras clave destacadas en gradiente: *"Construye Software Excepcional: Domina la Calidad, Procesos y Metodologías Ágiles"*.
 - Párrafo introductorio claro que explique el propósito de la plataforma.
 - Dos botones de llamado a la acción:

@@ -1,4 +1,4 @@
-# 🚀 PLANIFICACIÓN TÉCNICA DEL SPRINT 1 — EQUIPO VELORA
+# PLANIFICACIÓN TÉCNICA DEL SPRINT 1 — EQUIPO VELORA
 **Proyecto:** Portal Web de Sistemas de Gestión de Calidad del Software (SGCS 2026)  
 **Metodología:** SCRUM Ágil  
 **Duración Estimada:** 2 Semanas (Sprint 1)  
@@ -9,14 +9,14 @@
 
 ---
 
-## 1. 🎯 Objetivo del Sprint (Sprint Goal)
+## 1. Objetivo del Sprint (Sprint Goal)
 > **"Desplegar el Producto Mínimo Viable (MVP) del portal web con la arquitectura base de navegación responsive, la identidad de marca VELORA y la sección completa de Gestión de la Calidad del Software con interactividad dinámica en JavaScript."**
 
 Al finalizar este Sprint, el portal debe estar completamente navegable, visualmente estructurado con el branding de VELORA, adaptado a dispositivos móviles y de escritorio, y con el módulo pedagógico de Calidad del Software totalmente interactivo y validado por QA.
 
 ---
 
-## 2. 📋 Alcance del Sprint Backlog (Historias de Usuario)
+## 2. Alcance del Sprint Backlog (Historias de Usuario)
 
 | Prioridad | ID | Historia de Usuario | Story Points (SP) | Responsable Principal | QA / Validador |
 | :---: | :---: | :--- | :---: | :---: | :---: |
@@ -29,7 +29,7 @@ Al finalizar este Sprint, el portal debe estar completamente navegable, visualme
 
 ---
 
-## 3. 🏗️ Arquitectura Técnica y Estructura de Archivos Recomendada
+## 3. Arquitectura Técnica y Estructura de Archivos Recomendada
 
 Para garantizar un desarrollo limpio, modular y sin conflictos de integración en Git, el equipo adoptará la siguiente estructura estándar para el proyecto:
 
@@ -66,9 +66,9 @@ Zeballitos/
 
 ---
 
-## 4. ⚙️ Desglose Detallado de Tareas Técnicas por Historia de Usuario
+## 4. Desglose Detallado de Tareas Técnicas por Historia de Usuario
 
-### 📌 US-01: Página de Inicio e Introducción General (8 SP)
+### US-01: Página de Inicio e Introducción General (8 SP)
 - [ ] **[Diseño/CSS - Iasser]**:
   - Diseñar la **Hero Section** con headline persuasivo, subtítulo explicativo de SGCS y botones de llamado a la acción (CTA).
   - Implementar el Navbar sticky con logotipo (`img/VELORA.png`), enlaces a módulos y botón de acceso rápido.
@@ -84,7 +84,7 @@ Zeballitos/
 
 ---
 
-### 📌 US-02: Sección "Fundamentos de Calidad" (5 SP)
+### US-02: Sección "Fundamentos de Calidad" (5 SP)
 - [ ] **[Diseño/CSS - Iasser]**:
   - Estructurar las cajas de contenido textual para conceptos clave: Definición de Calidad, Control vs. Aseguramiento, Métricas de Software.
   - Maquetar el componente visual de pestañas (Tabs) o acordeón para contraponer **ISO/IEC 9126** vs. **ISO/IEC 25000 (SQuaRE)**.
@@ -97,7 +97,7 @@ Zeballitos/
 
 ---
 
-### 📌 US-03: Sección "Técnicas de Aseguramiento de la Calidad" (5 SP)
+### US-03: Sección "Técnicas de Aseguramiento de la Calidad" (5 SP)
 - [ ] **[Diseño/CSS - Iasser]**:
   - Maquetar cuadrícula para niveles de pruebas (Unitarias, Integración, Sistema, Aceptación) y tipos (Caja Negra, Caja Blanca, Estáticas, Dinámicas).
   - Diseñar los estilos 3D para **flip-cards** (con `perspective` y `transform: rotateY(180deg)`) o contenedor modal emergente.
@@ -109,7 +109,7 @@ Zeballitos/
 
 ---
 
-### 📌 US-04: Sección "Herramientas de Calidad" (8 SP)
+### US-04: Sección "Herramientas de Calidad" (8 SP)
 - [ ] **[Diseño/CSS - Iasser]**:
   - Diseñar la barra de botones de filtrado por categorías: *Todas*, *Bug Trackers*, *Linters / Análisis Estático*, *Gestión de Pruebas (Test Management)*, *Automatización*.
   - Maquetar las tarjetas de herramientas (ej. Jira, Bugzilla, ESLint, SonarQube, TestRail, Cypress) con logo, categoría, etiqueta y breve descripción.
@@ -125,7 +125,7 @@ Zeballitos/
 
 ---
 
-### 📌 US-16: Sección "Sobre Nosotros" (3 SP)
+### US-16: Sección "Sobre Nosotros" (3 SP)
 - [ ] **[Diseño/CSS - Iasser]**:
   - Maquetar las tarjetas de presentación del equipo **VELORA**:
     - **sanma**: Scrum Master (Liderazgo ágil, control de métricas y facilitación).
@@ -139,7 +139,7 @@ Zeballitos/
 
 ---
 
-## 5. 🚦 Políticas de Calidad del Equipo VELORA
+## 5. Políticas de Calidad del Equipo VELORA
 
 ### Criterios de Preparación (Definition of Ready - DoR)
 Una Historia de Usuario puede iniciar desarrollo únicamente si:
@@ -157,7 +157,7 @@ Una Historia de Usuario se considera **COMPLETADA ("Done")** y lista para presen
 
 ---
 
-## 6. 📅 Cronograma y Ceremonias del Sprint 1
+## 6. Cronograma y Ceremonias del Sprint 1
 
 ```mermaid
 gantt
