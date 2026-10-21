@@ -19,6 +19,14 @@ function initVelora() {
         initToolsFilter();
     }
 
+    // ---- Módulos de Sprint 2 (metodologias.html / nosotros.html) ----
+    if (typeof initAgile === 'function') {
+        initAgile();
+    }
+    if (typeof initContactForm === 'function') {
+        initContactForm();
+    }
+
     // ---- Theme Toggle ----
     const themeToggle = document.getElementById('themeToggle');
     const headerLogo  = document.getElementById('headerLogo');

@@ -1,6 +1,6 @@
 # Documentación de Cambios y Refactorización — Proyecto SGCS 2026
 
-> **Equipo:** VELORA · **Metodología:** SCRUM Ágil · **Sprint Actual:** Sprint 1 Completado
+> **Equipo:** VELORA · **Metodología:** SCRUM Ágil · **Sprint Actual:** Sprint 2 (5 Historias de Diseño Entregadas por Iasser Chahaud)
 
 ---
 
@@ -225,5 +225,83 @@ Zeballitos/
    - Agrupación por categorías claras:
      - Encabezado: **"Páginas del Portal"** con badges explicativos (`Página` / `Página actual`).
      - Subenlaces indentados con flecha `↳` para las secciones internas.
+
+---
+
+## 10. Sprint 2 — Entregas de Diseño & Maquetación UX/UI (Iasser Chahaud)
+
+En cumplimiento con el rol de **Diseñador UX/UI & Tester QA (Iasser Chahaud)** y la **Planificación Ágil Reestructurada**, se implementaron y desplegaron las 5 historias de usuario de mayor envergadura visual y de interacción del Sprint 2:
+
+### US-08: Sección 'Metodologías Ágiles' (8 SP)
+- **Nueva página:** `metodologias.html` estructurada con navegación unificada, Hero interactivo y Subnav sticky (`#manifiesto`, `#ilustraciones`, `#scrum`, `#kanban`, `#faq`).
+- **Los 4 Valores del Manifiesto Ágil:** Maquetación con tarjetas de contraste dual en `css/agile.css`, destacando los valores priorizados en `--accent` frente a los enfoques rígidos tachados.
+- **Los 12 Principios Ágiles:** Grilla responsive de 12 tarjetas numeradas con insignia circular y tipografía de lectura rápida.
+- **Comparativa de Paradigmas:** Enfoques Predictivos (Tradicionales) vs Adaptativos (Ágiles).
+
+### US-07 & US-09: Ilustraciones Vectoriales y Visor Modal Lightbox (5 SP)
+- **4 Diagramas SVG Nativos:**
+  1. *Ciclo del Sprint Scrum:* Diagrama de flujo de Product Backlog a Incremento con bucle diario de Daily de 24h.
+  2. *Flujo de Trabajo Kanban & Pull System:* Representación visual del tirón continuo y límites WIP.
+  3. *Bucles de Retroalimentación en XP:* Escalas concéntricas de validación (Pairing, TDD, CI/CD, Aceptación).
+  4. *Modelo Tradicional en V:* Alineación simétrica entre fases de desarrollo y verificación de calidad.
+- **Componente Modal Lightbox (Integrado en `js/agile.js`):**
+  - Efecto de desenfoque de fondo (`backdrop-filter: blur(8px)`).
+  - Animación suave de apertura `zoomIn` (`transform: scale()`).
+  - Accesibilidad integrada: soporte de tecla `Escape`, trampa de foco y restauración al elemento disparador.
+  - Caption dinámico y visualización sin pérdida de resolución en pantallas Retina/4K.
+
+### US-10: Sección Profunda de Scrum (8 SP)
+- **Navegación por Píldoras (`.scrum-nav-pills`):** Alternancia accesible entre Roles, Eventos y Artefactos.
+- **Tarjetas de Roles:** Product Owner (Indigo), Scrum Master (Esmeralda), Developers (Ámbar) con listas de responsabilidades y alertas de antipatrones a evitar.
+- **Diagrama Interactivo del Sprint (Integrado en `js/agile.js`):** Stepper secuencial (Sprint Planning, Daily Scrum, Sprint Review, Sprint Retrospective) que despliega en tiempo real:
+  - Timebox oficial según la Guía de Scrum.
+  - Objetivo primordial del evento.
+  - Participantes obligatorios.
+  - Entregables y salidas formales.
+
+### US-11: Tablero Kanban Interactivo & Control de Límites WIP (8 SP)
+- **Simulador Interactivo (Integrado en `js/agile.js`):**
+  - 4 Columnas: Backlog, En Proceso (Límite WIP: 3), Pruebas QA (Límite WIP: 2) y Finalizado.
+  - Tarjetas didácticas con prioridades visuales (Alta, Media, Baja), código de historia (`US-XX`) y avatar del responsable.
+  - Botones de transferencia ágil (`←` y `→`).
+  - **Detección Activa de Cuellos de Botella:** La clase `.wip-exceeded` activa un borde rojo con animación de latido (`keyframes pulse`) en cuanto una columna sobrepasa su límite de capacidad, enseñando el principio fundamental de Kanban ("dejar de empezar y empezar a terminar").
+  - Botones de control: "Reiniciar Tablero" y "Forzar Exceso WIP" para demostración docente.
+
+### US-17: Formulario de Contacto & Feedback Accesible (5 SP)
+- **Ubicación:** Integrado en `nosotros.html#contacto`.
+- **Diseño UI/UX:** Formulario semántico con etiquetas explícitas `<label for="...">`.
+- **Validación del Cliente en Tiempo Real (`js/contact-form.js`):**
+  - Validación de nombre (mínimo 2 letras) y correo electrónico (regex RFC).
+  - Selector categorizado de asunto (Teoría, Agilidad, Diseño UX, Reporte Bug QA).
+  - Mensaje explicativo (mínimo 10 caracteres).
+  - Estados `:focus-visible` con anillo accesible de alto contraste.
+  - **Feedback Inmediato:** Transición animada al banner de confirmación exitosa sin recargar la página (`aria-live="polite"`).
+
+### US-13: Preguntas Frecuentes (FAQ Ágil) con HTML5 Semántico (3 SP)
+- **Implementación con `<details>` y `<summary>` (0 Líneas de JavaScript):**
+  - Acordeón nativo del navegador, reduciendo drásticamente la carga de scripts.
+  - Estilizado en `css/agile.css` con rotación suave de flecha vía `details[open] .faq-icon-rotator`.
+  - Accesibilidad integrada por estándar web (soporta teclado, lectores de pantalla y búsqueda en página `Ctrl+F` de forma nativa).
+
+---
+
+## 12. Optimización de Arquitectura JavaScript (Refactorización por Iasser Chahaud)
+
+A raíz de la revisión de diseño y para evitar la sobre-ingeniería de scripts en el proyecto:
+1. **Eliminación de 4 scripts redundantes:** Se suprimieron `lightbox.js`, `scrum-diagram.js`, `kanban-board.js` y `faq-accordion.js`.
+2. **Consolidación en `js/agile.js`:** Toda la interactividad del módulo ágil quedó unificada en un único archivo modular, limpio y ligero (`initAgile()`).
+3. **Migración a HTML5 Nativo:** El componente FAQ pasó a ser 100% declarativo con `<details>` y `<summary>`.
+4. **Carga en `metodologias.html`:** Solo se importan `navbar.js`, `agile.js` y `main.js`.
+
+---
+
+## 11. Arquitectura de Navegación Global Actualizada (4 Páginas)
+
+Todas las páginas del portal comparten la barra de navegación responsive sincronizada:
+1. **Inicio** (`index.html`)
+2. **Módulo Calidad** (`calidad.html` con dropdown de Fundamentos, Técnicas y Herramientas)
+3. **Módulo Ágil** (`metodologias.html` con dropdown de Manifiesto, Ilustraciones, Scrum, Kanban y FAQ)
+4. **Sobre Nosotros** (`nosotros.html` con ancla directa a `#contacto`)
+
 
 

@@ -51,11 +51,42 @@
                             </a>
                         </div>
                     </li>
+                    <li class="nav-item-dropdown">
+                        <a href="metodologias.html" class="nav-link" data-page="metodologias.html">
+                            Módulo Ágil
+                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        </a>
+                        <div class="dropdown-menu">
+                            <span class="dropdown-header">Módulo Sprint 2</span>
+                            <a href="metodologias.html" class="dropdown-item">
+                                <span class="dropdown-item-title">Ver Módulo Completo</span>
+                                <span class="dropdown-item-desc">Metodologías Ágiles (metodologias.html)</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <span class="dropdown-header">Secciones del Módulo</span>
+                            <a href="metodologias.html#manifiesto" class="dropdown-item">
+                                <span class="dropdown-item-title">Manifiesto Ágil</span>
+                                <span class="dropdown-item-desc">4 Valores y 12 Principios</span>
+                            </a>
+                            <a href="metodologias.html#ilustraciones" class="dropdown-item">
+                                <span class="dropdown-item-title">Ilustraciones SVG</span>
+                                <span class="dropdown-item-desc">Lightbox a pantalla completa</span>
+                            </a>
+                            <a href="metodologias.html#scrum" class="dropdown-item">
+                                <span class="dropdown-item-title">Scrum en Detalle</span>
+                                <span class="dropdown-item-desc">Ciclo interactivo de Sprint</span>
+                            </a>
+                            <a href="metodologias.html#kanban" class="dropdown-item">
+                                <span class="dropdown-item-title">Tablero Kanban</span>
+                                <span class="dropdown-item-desc">Simulador interactivo con límites WIP</span>
+                            </a>
+                        </div>
+                    </li>
                     <li><a href="nosotros.html" class="nav-link" data-page="nosotros.html">Sobre Nosotros</a></li>
                 </ul>
 
                 <div class="nav-cta">
-                    <a href="calidad.html" class="btn btn-primary">Ir al Módulo →</a>
+                    <a href="#contacto" class="btn btn-primary">Formulario Contacto ↓</a>
                 </div>
 
                 <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
@@ -100,15 +131,28 @@
                 <a href="calidad.html#tecnicas" class="mobile-sublink">↳ Técnicas QA (US-03)</a>
                 <a href="calidad.html#herramientas" class="mobile-sublink">↳ Herramientas QA (US-04)</a>
             </div>
-            <a href="nosotros.html" class="mobile-nav-link" data-page="nosotros.html">
+            <a href="metodologias.html" class="mobile-nav-link" data-page="metodologias.html">
+                <span>Módulo Ágil</span>
+                <span class="mobile-nav-badge">Página</span>
+            </a>
+            <div class="mobile-sublinks">
+                <a href="metodologias.html#manifiesto" class="mobile-sublink">↳ Manifiesto Ágil (US-08)</a>
+                <a href="metodologias.html#ilustraciones" class="mobile-sublink">↳ Ilustraciones & Lightbox (US-07/09)</a>
+                <a href="metodologias.html#scrum" class="mobile-sublink">↳ Scrum en Detalle (US-10)</a>
+                <a href="metodologias.html#kanban" class="mobile-sublink">↳ Tablero Kanban (US-11)</a>
+            </div>
+            <a href="nosotros.html" class="mobile-nav-link active-page" data-page="nosotros.html">
                 <span>Sobre Nosotros</span>
                 <span class="mobile-nav-badge">Página actual</span>
             </a>
+            <div class="mobile-sublinks">
+                <a href="#contacto" class="mobile-sublink">↳ Formulario de Contacto (US-17)</a>
+            </div>
         </div>
 
         <div class="mobile-nav-divider"></div>
 
-        <a href="calidad.html" class="btn btn-primary">Ir a Módulo Calidad</a>
+        <a href="#contacto" class="btn btn-primary">Enviar Consulta / Feedback</a>
     </div>
 
     <main>
@@ -183,6 +227,83 @@
             </div>
         </section>
 
+        <!-- ========== US-17: FORMULARIO DE CONTACTO & FEEDBACK ========== -->
+        <section class="contact-section" id="contacto">
+            <div class="container">
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <span class="tech-badge">US-17 • Canal de Comunicación</span>
+                        <h3>Contacto & Feedback con VELORA</h3>
+                        <p>¿Tienes dudas académicas sobre el material, sugerencias de diseño UX o reportes de calidad? Envíanos un mensaje y te responderemos a la brevedad.</p>
+                    </div>
+
+                    <form id="contactForm" novalidate>
+                        <div class="form-grid">
+                            <!-- Nombre -->
+                            <div class="form-group">
+                                <label for="contactName" class="form-label">Nombre Completo <span class="req">*</span></label>
+                                <input type="text" id="contactName" name="name" class="form-input" placeholder="Ej. Ana Pérez" required autocomplete="name">
+                                <span class="form-error-msg">El nombre es obligatorio (mínimo 2 letras).</span>
+                            </div>
+
+                            <!-- Correo -->
+                            <div class="form-group">
+                                <label for="contactEmail" class="form-label">Correo Institucional / Personal <span class="req">*</span></label>
+                                <input type="email" id="contactEmail" name="email" class="form-input" placeholder="correo@ejemplo.com" required autocomplete="email">
+                                <span class="form-error-msg">Ingresa un correo electrónico con formato válido.</span>
+                            </div>
+
+                            <!-- Tipo de Consulta -->
+                            <div class="form-group form-full">
+                                <label for="contactSubject" class="form-label">Categoría de Consulta <span class="req">*</span></label>
+                                <select id="contactSubject" name="subject" class="form-select" required>
+                                    <option value="" disabled selected>Selecciona una opción...</option>
+                                    <option value="teoria">Consulta Teórica sobre SGCS (Normas ISO / SDLC)</option>
+                                    <option value="agil">Dudas sobre Metodologías Ágiles (Scrum / Kanban)</option>
+                                    <option value="diseno">Feedback de Diseño UI/UX o Accesibilidad</option>
+                                    <option value="bug">Reporte de Bug o Incidencia Técnica (QA)</option>
+                                    <option value="otro">Otro tipo de consulta</option>
+                                </select>
+                                <span class="form-error-msg">Selecciona una categoría válida.</span>
+                            </div>
+
+                            <!-- Mensaje -->
+                            <div class="form-group form-full">
+                                <label for="contactMessage" class="form-label">Mensaje o Detalle <span class="req">*</span></label>
+                                <textarea id="contactMessage" name="message" class="form-textarea" rows="4" placeholder="Escribe aquí tu consulta o retroalimentación con el mayor detalle posible..." required></textarea>
+                                <span class="form-error-msg">El mensaje debe tener al menos 10 caracteres.</span>
+                            </div>
+
+                            <!-- Aceptación -->
+                            <div class="form-group form-full">
+                                <label class="form-checkbox-label">
+                                    <input type="checkbox" id="contactTerms" class="form-checkbox" required>
+                                    <span>Acepto el tratamiento de estos datos exclusivamente con fines académicos del proyecto SGCS 2026.</span>
+                                </label>
+                            </div>
+
+                            <!-- Submit -->
+                            <div class="form-full" style="text-align: right; margin-top: 0.5rem;">
+                                <button type="submit" class="btn btn-primary" style="padding: 0.85rem 2rem;">Enviar Mensaje →</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Banner de Confirmación Exitosa -->
+                    <div class="form-success-banner" id="contactSuccessBanner" role="alert" aria-live="polite">
+                        <div class="success-icon-large">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                        </div>
+                        <h4 style="font-size: 1.35rem; color: #10B981; margin-bottom: 0.5rem;">¡Mensaje Enviado con Éxito!</h4>
+                        <p style="color: var(--text-secondary); max-width: 520px; margin: 0 auto 1.5rem; line-height: 1.5;">
+                            Gracias por tu feedback. El equipo VELORA (sanma, Gael o Iasser) revisará tu consulta durante la siguiente Daily o sesión de refinamiento.
+                        </p>
+                        <button class="btn btn-secondary" id="btnSendAnother" type="button">Enviar Otro Mensaje</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <!-- ========== FOOTER ========== -->
@@ -205,7 +326,8 @@
                     <h4>Navegación</h4>
                     <ul>
                         <li><a href="index.html">Inicio</a></li>
-                        <li><a href="#equipo">Equipo</a></li>
+                        <li><a href="metodologias.html">Módulo Ágil</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
@@ -227,6 +349,7 @@
     <script src="js/quality-tabs.js"></script>
     <script src="js/quality-cards.js"></script>
     <script src="js/tools-filter.js"></script>
+    <script src="js/contact-form.js"></script>
     <script src="js/main.js"></script>
 </body>
 
