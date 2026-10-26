@@ -134,11 +134,14 @@ En concordancia con el rol de **Diseñador UX/UI (Iasser Chahaud)** y la **Plani
 
 ## 4. Arquitectura de Archivos Actualizada (Sprint 2)
 
+> **Nota:** los scripts `lightbox.js`, `scrum-diagram.js`, `kanban-board.js` y `faq-accordion.js` mencionados en las tareas de la sección 3 se consolidaron en `js/agile.js` (el FAQ usa `<details>` nativo, sin JavaScript). Ver `DOCUMENTACION_CAMBIOS.md`, sección 12.
+
 ```text
 Sistemas-de-gestion-de-calidad-del-software-proyecto/
 ├── index.html                      # Home / US-01 (Actualizado con links a Sprint 2)
 ├── calidad.html                    # Módulo Calidad / US-02, US-03, US-04
-├── metodologias.html               # NUEVO: Módulo Ágil / US-08, US-07/09, US-10, US-11, US-13
+├── metodologias.html               # NUEVO: Módulo Ágil / US-08, US-07/09, US-10, US-11, US-13, US-18, US-19
+├── recursos.html                   # NUEVO: Centro de Recursos / US-12
 ├── nosotros.html                   # Módulo Nosotros & Contacto / US-16, US-17
 │
 ├── css/
@@ -149,6 +152,8 @@ Sistemas-de-gestion-de-calidad-del-software-proyecto/
 │   ├── hero.css                    # Hero section y gradientes
 │   ├── components.css              # Cards, tabs, flip-cards, filtros
 │   ├── agile.css                   # NUEVO: Estilos de Sprint 2 (Lightbox, Scrum, Kanban, FAQ, Form)
+│   ├── interactive.css             # NUEVO: Comparador (US-18) y Wizard de Encuesta (US-19)
+│   ├── resources.css               # NUEVO: Centro de Recursos — Glosario (US-12)
 │   └── responsive.css              # Breakpoints globales (1024px, 768px, 480px, 375px)
 │
 ├── js/
@@ -158,7 +163,10 @@ Sistemas-de-gestion-de-calidad-del-software-proyecto/
 │   ├── quality-cards.js            # Flip-cards de pruebas
 │   ├── tools-filter.js             # Filtro dinámico de herramientas
 │   ├── agile.js                    # CONSOLIDADO: Lightbox (US-07/09), Scrum (US-10) y Kanban (US-11)
-│   └── contact-form.js             # Validación de formulario y feedback (US-17)
+│   ├── contact-form.js             # Validación de formulario y feedback (US-17)
+│   ├── comparator.js               # Comparador dinámico de metodologías (US-18)
+│   ├── survey-wizard.js            # Wizard y algoritmo de recomendación (US-19)
+│   └── glossary.js                 # Búsqueda en tiempo real y filtro A-Z (US-12)
 │
 ├── img/
 │   ├── VELORA.png                  # Logotipo modo oscuro
@@ -168,6 +176,7 @@ Sistemas-de-gestion-de-calidad-del-software-proyecto/
     ├── DOCUMENTACION_CAMBIOS.md     # Bitácora detallada de refactorización y entregas
     ├── sprint.md                   # Planificación ágil reestructurada oficial
     ├── sprint_1_planificacion_programadores.md # Plan técnico Sprint 1
+    ├── sprint_2.md                 # Guía de historias restantes del Sprint 2
     ├── sprint_2_planificacion_diseno_desarrollo.md # Plan técnico Sprint 2 (Este documento)
     ├── roles_proyecto_SCRUM.md     # Definición de roles VELORA
     └── Proyecto_SGCS.md            # Backlog maestro de requerimientos

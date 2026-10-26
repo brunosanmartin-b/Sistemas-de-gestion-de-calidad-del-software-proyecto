@@ -4,6 +4,18 @@
    Fitts's Law: accessible touch targets (≥44px)
    ============================================ */
 
+/* ---- Desktop compacto: 1100px ---- */
+@media (max-width: 1100px) {
+    /* Evita que los enlaces del navbar se partan en dos líneas */
+    .nav-cta {
+        display: none;
+    }
+
+    .nav-links {
+        gap: 0.25rem;
+    }
+}
+
 /* ---- Tablet: 1024px ---- */
 @media (max-width: 1024px) {
     .hero h1 {
@@ -98,7 +110,8 @@
 
     /* Cards & Grids */
     .module-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
     }
 
     .team-grid {
@@ -155,6 +168,10 @@
 
 /* ---- Small Tablet / Phablet: 580px ---- */
 @media (max-width: 580px) {
+    .module-grid {
+        grid-template-columns: 1fr;
+    }
+
     .flip-grid {
         grid-template-columns: 1fr;
         max-width: 360px;
@@ -230,7 +247,7 @@
     }
 
     .module-card h3 {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 
     .team-member {

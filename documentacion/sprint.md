@@ -40,9 +40,9 @@
 | **MEDIA** | **US-17** | Formulario de Contacto | Habilita el canal de comunicación con validaciones de datos en JS. | ✅ Entregado |
 | **ALTA** | **US-10** | Sección Profunda Scrum | Detalle de roles, ceremonias y artefactos con diagrama interactivo. | ✅ Entregado |
 | **ALTA** | **US-11** | Sección Profunda Kanban | Simulación interactiva tipo drag-and-drop para la gestión de límites WIP. | ✅ Entregado (Tablero con límites WIP) |
-| **ALTA** | **US-18** | Comparador de Metodologías | Generación dinámica de tablas comparativas en tiempo real (Funcionalidad Estrella). | ⏳ **Pendiente (Restante)** |
-| **ALTA** | **US-19** | Encuesta de Preferencias | Asistente paso a paso (Wizard) con algoritmo de recomendación. | ⏳ **Pendiente (Restante)** |
-| **MEDIA** | **US-12** | Sección 'Glosario' | Herramienta de búsqueda alfabética y filtrado dinámico en tiempo real. | ⏳ **Pendiente (Restante)** |
+| **ALTA** | **US-18** | Comparador de Metodologías | Generación dinámica de tablas comparativas en tiempo real (Funcionalidad Estrella). | ✅ Entregado |
+| **ALTA** | **US-19** | Encuesta de Preferencias | Asistente paso a paso (Wizard) con algoritmo de recomendación. | ✅ Entregado |
+| **MEDIA** | **US-12** | Sección 'Glosario' | Herramienta de búsqueda alfabética y filtrado dinámico en tiempo real. | ✅ Entregado (`recursos.html`) |
 | **BAJA** | **US-14** | Enlaces de Interés | Tarjetas de recursos externos con buenas prácticas de seguridad web. | ⏳ **Pendiente (Restante)** |
 | **BAJA** | **US-15** | Ejercicios Prácticos | Módulo interactivo para desplegar soluciones de ejercitación de los temas vistos. | ⏳ **Pendiente (Restante)** |
 

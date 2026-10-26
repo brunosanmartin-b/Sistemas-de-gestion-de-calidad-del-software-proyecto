@@ -26,6 +26,15 @@ function initVelora() {
     if (typeof initContactForm === 'function') {
         initContactForm();
     }
+    if (typeof initComparator === 'function') {
+        initComparator();
+    }
+    if (typeof initSurveyWizard === 'function') {
+        initSurveyWizard();
+    }
+    if (typeof initGlossary === 'function') {
+        initGlossary();
+    }
 
     // ---- Theme Toggle ----
     const themeToggle = document.getElementById('themeToggle');

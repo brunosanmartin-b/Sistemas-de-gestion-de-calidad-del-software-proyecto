@@ -1,6 +1,6 @@
 # Documentación de Cambios y Refactorización — Proyecto SGCS 2026
 
-> **Equipo:** VELORA · **Metodología:** SCRUM Ágil · **Sprint Actual:** Sprint 2 (5 Historias de Diseño Entregadas por Iasser Chahaud)
+> **Equipo:** VELORA · **Metodología:** SCRUM Ágil · **Sprint Actual:** Sprint 2 (Metodologías Ágiles, Interacción y JS)
 
 ---
 
@@ -295,13 +295,64 @@ A raíz de la revisión de diseño y para evitar la sobre-ingeniería de scripts
 
 ---
 
-## 11. Arquitectura de Navegación Global Actualizada (4 Páginas)
+## 11. Arquitectura de Navegación Global Actualizada (5 Páginas)
 
 Todas las páginas del portal comparten la barra de navegación responsive sincronizada:
 1. **Inicio** (`index.html`)
 2. **Módulo Calidad** (`calidad.html` con dropdown de Fundamentos, Técnicas y Herramientas)
-3. **Módulo Ágil** (`metodologias.html` con dropdown de Manifiesto, Ilustraciones, Scrum, Kanban y FAQ)
-4. **Sobre Nosotros** (`nosotros.html` con ancla directa a `#contacto`)
+3. **Módulo Ágil** (`metodologias.html` con dropdown de Manifiesto, Ilustraciones, Scrum, Kanban, Comparador, Encuesta y FAQ)
+4. **Recursos** (`recursos.html` con el Glosario de Términos)
+5. **Sobre Nosotros** (`nosotros.html` con ancla directa a `#contacto`)
 
+---
+
+## 13. Sprint 2 — Módulos Interactivos y Centro de Recursos (US-18 · US-19 · US-12)
+
+### US-18: Comparador Interactivo de Metodologías (8 SP)
+- **Ubicación:** sección `#comparador` en `metodologias.html`.
+- **Catálogo de datos (`js/comparator.js`):** `METODOLOGIAS_DATA` con 6 metodologías (Cascada, Modelo en V, Iterativo, Scrum, Kanban, XP) y 7 atributos homogéneos: enfoque, gestión del cambio, roles, ciclo y entrega, involucramiento del cliente, documentación e ideal para.
+- **Selección:** chips (checkboxes estilizados) agrupados en Tradicionales y Ágiles, con color distintivo por metodología (tokens `--method-*` en `css/interactive.css`, con variante para modo oscuro).
+- **Tabla dinámica:** se reconstruye en el DOM al marcar/desmarcar, sin recarga. Cabecera y primera columna fijas (`position: sticky`); en móvil, scroll horizontal dentro del contenedor.
+- **Validaciones:** no permite desmarcar la última metodología (aviso accesible en `role="status"`); estado vacío con menos de 2 seleccionadas; recomendación de 2 a 4 cuando se seleccionan más.
+- **Acciones rápidas:** "Comparar Tradicional vs. Ágil", "Comparar Scrum vs. Kanban" y "Limpiar selección".
+
+### US-19: Encuesta de Preferencias Metodológicas — Wizard (8 SP)
+- **Ubicación:** sección `#asistente` en `metodologias.html`.
+- **Datos (`js/survey-wizard.js`):** `SURVEY_QUESTIONS` con 5 preguntas (estabilidad de requisitos, disponibilidad del cliente, equipo, criticidad/regulación y frecuencia de entregas), cada opción con pesos para `scrum`, `kanban`, `xp` y `cascada`.
+- **Wizard:** indicador "Paso X de 5" y barra de progreso porcentual (`role="progressbar"`); opciones como radios estilizados con check de selección; no permite avanzar sin respuesta; "Anterior" conserva la selección; foco en la pregunta al cambiar de paso.
+- **Algoritmo:** suma ponderada de puntajes, porcentajes normalizados que suman exactamente 100 (método del mayor resto) y desempate determinista.
+- **Resultado:** barras de compatibilidad por metodología, badge "Recomendada para tu proyecto", justificación, riesgos a considerar y botón "Reiniciar encuesta".
+- **QA:** rutas A (Cascada), B (Scrum), C (Kanban) y D (XP) verificadas.
+
+### US-12: Glosario de Términos (5 SP)
+- **Nueva página:** `recursos.html` (Centro de Recursos) con sección `#glosario`.
+- **Datos (`js/glossary.js`):** `GLOSSARY_TERMS` con 33 términos y categorías `Calidad / ISO`, `SDLC`, `Scrum`, `Kanban` y `Testing`.
+- **Búsqueda en vivo** sobre término y definición, insensible a mayúsculas y tildes (`normalize('NFD')`), con botón de borrado rápido y tecla `Escape`.
+- **Navegación alfabética** `Todos | A … Z` (incluye Ñ) con `aria-pressed`; las letras sin términos se muestran deshabilitadas. Los filtros de letra y búsqueda se combinan.
+- **Contador accesible** (`aria-live="polite"`) y estado vacío con botón "Limpiar filtros".
+- **Estilos:** `css/resources.css`.
+
+### Rediseño de las tarjetas "Módulos Educativos" (`index.html`)
+- Nueva estructura: cabecera con ícono + título, divisor y lista de accesos directos a las subsecciones (o descripción en las tarjetas de una sola sección, que son clickeables completas).
+- 6 tarjetas: Metodologías ágiles, Procesos de desarrollo, Sistema de gestión de calidad, Recursos y aprendizaje, Encuesta de preferencias metodológicas y Comparador de metodologías.
+- Se reutiliza el sistema `.module-card` existente (bordes, radios, hover y barra de acento). Grilla de 3 columnas en escritorio, 2 en tablet y 1 en móvil.
+
+### Correcciones del Sprint 2
+- **Kanban (US-11):** drag-and-drop nativo entre columnas (con resaltado de la columna destino); títulos y `aria-label` de los botones ←/→ actualizados según la columna actual; el foco del teclado se mantiene en la tarjeta movida; pluralización correcta de los contadores ("1 Finalizada").
+- **Lightbox (US-07/09):** trampa de foco real dentro del modal.
+- **Scrum (US-10):** `aria-pressed` en los botones del stepper de ceremonias.
+- **Formulario (US-17):** el error del checkbox de privacidad se muestra en línea en lugar de `alert()`; mensajes de error vinculados con `aria-describedby`; foco en el primer campo inválido; "Enviar otro mensaje" limpia también `aria-invalid`.
+- **Navegación:** `scroll-margin-top` para que las secciones no queden tapadas por el header/subnav al llegar desde otra página; enlaces del navbar sin salto de línea (el botón CTA se oculta por debajo de 1100px); enlaces rotos del footer y de la tarjeta SDLC en `index.html` corregidos.
+- **Utilidades globales (`css/reset.css`):** clase `.sr-only` y regla `[hidden] { display: none !important; }`.
+
+### Archivos nuevos
+| Archivo | Historia | Responsabilidad |
+|---|---|---|
+| `recursos.html` | US-12 | Centro de Recursos |
+| `css/interactive.css` | US-18 · US-19 | Comparador y Wizard |
+| `css/resources.css` | US-12 | Glosario |
+| `js/comparator.js` | US-18 | Catálogo y tabla dinámica |
+| `js/survey-wizard.js` | US-19 | Pasos, validación y algoritmo de recomendación |
+| `js/glossary.js` | US-12 | Búsqueda y filtro alfabético |
 
 

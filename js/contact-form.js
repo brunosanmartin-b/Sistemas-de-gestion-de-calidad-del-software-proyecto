@@ -23,6 +23,11 @@ function initContactForm() {
         if (!group) return;
 
         const errorEl = group.querySelector('.form-error-msg');
+        if (errorEl) {
+            // Vincular el mensaje de error al campo para lectores de pantalla
+            if (!errorEl.id) errorEl.id = `${input.id}-error`;
+            input.setAttribute('aria-describedby', errorEl.id);
+        }
 
         if (isValid) {
             group.classList.remove('has-error');
@@ -56,6 +61,12 @@ function initContactForm() {
         messageInput.addEventListener('blur', () => {
             const valid = messageInput.value.trim().length >= 10;
             setFieldStatus(messageInput, valid, 'El mensaje debe contener al menos 10 caracteres explicativos.');
+        });
+    }
+
+    if (termsCheck) {
+        termsCheck.addEventListener('change', () => {
+            if (termsCheck.checked) setFieldStatus(termsCheck, true);
         });
     }
 
@@ -98,8 +109,15 @@ function initContactForm() {
 
         // Validar Aceptación de términos
         if (termsCheck && !termsCheck.checked) {
-            alert('Debes aceptar las políticas de privacidad y uso académico.');
+            setFieldStatus(termsCheck, false, 'Debes aceptar las políticas de privacidad y uso académico.');
             isFormValid = false;
+        } else if (termsCheck) {
+            setFieldStatus(termsCheck, true);
+        }
+
+        if (!isFormValid) {
+            const firstInvalid = form.querySelector('[aria-invalid="true"]');
+            if (firstInvalid) firstInvalid.focus();
         }
 
         if (isFormValid) {
@@ -118,8 +136,10 @@ function initContactForm() {
             form.reset();
             form.style.display = 'block';
             successBanner.classList.remove('active');
-            document.querySelectorAll('.form-group').forEach(g => g.classList.remove('has-error'));
-            document.querySelectorAll('.form-input, .form-select, .form-textarea').forEach(i => i.classList.remove('error'));
+            [nameInput, emailInput, subjectInput, messageInput, termsCheck].forEach(field => {
+                if (field) setFieldStatus(field, true);
+            });
+            if (nameInput) nameInput.focus();
         });
     }
 }

@@ -19,13 +19,13 @@ El **Sprint 2: Metodologías Ágiles, Interacción y JS** tiene como objetivo es
   - **US-11:** Sección Profunda Kanban (Simulación interactiva de tablero con límites WIP, alertas de cuellos de botella y balanceo de flujo).
   - **US-13:** Sección 'FAQ' (Acordeón interactivo con microinteracciones y control ARIA).
   - **US-17:** Formulario de Contacto y Feedback accesible con validaciones en tiempo real (`nosotros.html`, `js/contact-form.js`).
+  - **US-18:** Comparador de Metodologías (`metodologias.html#comparador`, `js/comparator.js`, `css/interactive.css`).
+  - **US-19:** Encuesta de Preferencias Metodológicas (`metodologias.html#asistente`, `js/survey-wizard.js`, `css/interactive.css`).
+  - **US-12:** Sección 'Glosario' (`recursos.html#glosario`, `js/glossary.js`, `css/resources.css`).
 
-- ⏳ **Historias de Usuario Restantes por Implementar (5):**
-  1. **US-18:** Comparador de Metodologías *(Prioridad ALTA — Funcionalidad Estrella)*
-  2. **US-19:** Encuesta de Preferencias Metodológicas *(Prioridad ALTA — Wizard con algoritmo)*
-  3. **US-12:** Sección 'Glosario' *(Prioridad MEDIA — Búsqueda en tiempo real y filtro A-Z)*
-  4. **US-14:** Enlaces de Interés *(Prioridad BAJA — Repositorio curado y seguro)*
-  5. **US-15:** Ejercicios y Casos Prácticos *(Prioridad BAJA — Despliegue interactivo de soluciones)*
+- ⏳ **Historias de Usuario Restantes por Implementar (2):**
+  1. **US-14:** Enlaces de Interés *(Prioridad BAJA — Repositorio curado y seguro)*
+  2. **US-15:** Ejercicios y Casos Prácticos *(Prioridad BAJA — Despliegue interactivo de soluciones)*
 
 ---
 
@@ -54,13 +54,13 @@ Una historia de usuario se considerará completada únicamente cuando:
 ├───────────────┬───────────────────────────────────────────┬───────────┬─────────┤
 │ ID            │ Historia de Usuario                       │ Prioridad │ Puntos  │
 ├───────────────┼───────────────────────────────────────────┼───────────┼─────────┤
-│ US-18         │ Comparador Dinámico de Metodologías       │ ALTA (1)  │ 8 SP    │
-│ US-19         │ Asistente / Encuesta de Preferencias      │ ALTA (2)  │ 8 SP    │
-│ US-12         │ Glosario Interactivo con Búsqueda A-Z     │ MEDIA (3) │ 5 SP    │
+│ US-18  ✅     │ Comparador Dinámico de Metodologías       │ ALTA (1)  │ 8 SP    │
+│ US-19  ✅     │ Asistente / Encuesta de Preferencias      │ ALTA (2)  │ 8 SP    │
+│ US-12  ✅     │ Glosario Interactivo con Búsqueda A-Z     │ MEDIA (3) │ 5 SP    │
 │ US-15         │ Ejercicios Prácticos y Soluciones         │ BAJA (4)  │ 5 SP    │
 │ US-14         │ Enlaces y Recursos Externos Seguros       │ BAJA (5)  │ 3 SP    │
 ├───────────────┴───────────────────────────────────────────┴───────────┼─────────┤
-│ TOTAL PUNTOS RESTANTES ESTIMADOS                                      │ 29 SP   │
+│ TOTAL PUNTOS ESTIMADOS (entregados: 21 SP · restantes: 8 SP)          │ 29 SP   │
 └───────────────────────────────────────────────────────────────────────┴─────────┘
 ```
 
@@ -76,14 +76,14 @@ Una historia de usuario se considerará completada únicamente cuando:
 > *"Como usuario/estudiante, quiero seleccionar dos o más metodologías de desarrollo (Cascada, Modelo en V, Iterativo, Scrum, Kanban, XP) y generar una tabla comparativa interactiva en tiempo real para analizar objetivamente sus diferencias en enfoque, roles, entregables y gestión de cambios."*
 
 #### Criterios de Aceptación Técnicos:
-- [ ] **[Diseño/CSS - Iasser]**:
+- [x] **[Diseño/CSS - Iasser]**:
   - Diseñar una barra de selección con chips o tarjetas de control (`checkboxes` estilizados) para cada metodología, identificadas con iconos o colores distintivos:
     - *Tradicionales:* Cascada (azul clásico), Modelo en V (cian), Iterativo (púrpura).
     - *Ágiles:* Scrum (índigo), Kanban (esmeralda), XP (naranja).
   - Contenedor de tabla con diseño responsivo que incluya `overflow-x: auto` estilizado y cabecera pegajosa (`position: sticky; top: 0`) para visualización cómoda de múltiples columnas.
   - En resoluciones móviles (<768px), permitir visualización en tarjetas de comparación lado a lado o con scroll horizontal suave.
   - Estado visual vacío explicativo (*"Selecciona al menos dos metodologías para comparar"*).
-- [ ] **[JS - Gael]**:
+- [x] **[JS - Gael]**:
   - Estructurar un catálogo en JavaScript (`const METODOLOGIAS_DATA = { ... }`) que contenga atributos homogéneos:
     - *Enfoque principal* (Predictivo vs. Adaptativo / Empírico).
     - *Gestión del cambio* (Rígida, controlada por comité vs. Bienvenida en cualquier etapa).
@@ -95,7 +95,7 @@ Una historia de usuario se considerará completada únicamente cuando:
   - Motor de renderizado dinámico: al marcar/desmarcar un checkbox, la tabla debe reconstruirse en el DOM mediante manipulación limpia (sin recarga de página).
   - Validaciones: Alerta accesible cuando el usuario intente desmarcar todas las opciones (mínimo 1 seleccionada, recomendado 2 a 4).
   - Botones de acción rápida: *"Comparar Tradicional vs. Ágil"*, *"Comparar Scrum vs. Kanban"*, y *"Limpiar Selección"*.
-- [ ] **[QA/Tester - Bruno & Iasser]**:
+- [x] **[QA/Tester - Bruno & Iasser]**:
   - Validar matriz de combinaciones: 1 metodología seleccionada, 2 metodologías, todas seleccionadas.
   - Comprobar que no ocurran saltos bruscos de scroll al recalcular el DOM.
   - Asegurar navegación por teclado entre los checkboxes con foco visible (`:focus-visible`).
@@ -112,7 +112,7 @@ Una historia de usuario se considerará completada únicamente cuando:
 > *"Como usuario, quiero responder una breve encuesta guiada (tipo Wizard) sobre las variables de un proyecto de software ficticio o real (estabilidad de requisitos, equipo, riesgo, cliente) y obtener una recomendación fundamentada sobre qué metodología implementar."*
 
 #### Criterios de Aceptación Técnicos:
-- [ ] **[Diseño/CSS - Iasser]**:
+- [x] **[Diseño/CSS - Iasser]**:
   - Maquetación de la tarjeta del Wizard con indicador de progreso:
     - Barra de progreso porcentual fluida (`progress-bar`).
     - Pasos numerados (`Paso 1 de 5`).
@@ -122,7 +122,7 @@ Una historia de usuario se considerará completada únicamente cuando:
     - Gráfico visual de compatibilidad (barras porcentuales de coincidencia con Scrum, Kanban, XP y Cascada).
     - Metodología ganadora destacada con badge de *"Recomendada para tu proyecto"*.
     - Bloque de justificación estratégica y advertencias de riesgos a considerar.
-- [ ] **[JS - Gael]**:
+- [x] **[JS - Gael]**:
   - Lógica de pasos del Wizard: navegación secuencial sin recargar la página, ocultando y mostrando el paso actual (`step`).
   - Validación en cada paso: impedir avanzar al siguiente paso si no se ha seleccionado una respuesta.
   - **Algoritmo de recomendación ponderado**:
@@ -135,7 +135,7 @@ Una historia de usuario se considerará completada únicamente cuando:
       5. *Frecuencia deseada de entregas* (Días/semanas continuas vs. Lanzamiento anual).
     - Cálculo de porcentajes normalizados y renderizado dinámico del reporte final.
     - Botón *"Reiniciar Encuesta"* que restablece las variables a su estado inicial.
-- [ ] **[QA/Tester - Bruno & Iasser]**:
+- [x] **[QA/Tester - Bruno & Iasser]**:
   - Casos de prueba extremos:
     - Ruta A: Requisitos ultra fijos, sin cliente activo, regulación alta → Debe sugerir **Modelo Tradicional / Cascada**.
     - Ruta B: Requisitos cambiantes, entregas en timeboxes de 2 semanas, PO dedicado → Debe sugerir **Scrum**.
@@ -154,7 +154,7 @@ Una historia de usuario se considerará completada únicamente cuando:
 > *"Como usuario, quiero acceder a un glosario con definiciones claras de calidad y metodologías, pudiendo filtrar alfabéticamente o buscar por palabra clave en tiempo real."*
 
 #### Criterios de Aceptación Técnicos:
-- [ ] **[Diseño/CSS - Iasser]**:
+- [x] **[Diseño/CSS - Iasser]**:
   - Barra superior con campo de búsqueda estilizado (ícono de lupa, botón de borrado rápido).
   - Navegación alfabética horizontal accesible (`A | B | C | ... | Z | Todos`) con botón activo destacado.
   - Grilla de tarjetas terminológicas con diseño limpio:
@@ -162,12 +162,12 @@ Una historia de usuario se considerará completada únicamente cuando:
     - Insignia (badge) por categoría: `Calidad / ISO`, `SDLC`, `Scrum`, `Kanban`, `Testing`.
     - Definición clara en párrafo de lectura accesible.
   - Estado vacío visual (*"No se encontraron términos para tu búsqueda"*) con sugerencia de limpiar filtros.
-- [ ] **[JS - Gael]**:
+- [x] **[JS - Gael]**:
   - Arreglo de términos en JS con al menos 20 conceptos fundamentales (ej.: *Backlog, Caja Blanca, Caja Negra, Daily Scrum, DoD, DoR, Integración Continua, ISO 25000, Kanban, Lead Time, Límite WIP, Métrica, Pair Programming, QA, QC, Refactorización, Retrospectiva, Sprint, TDD, User Story*).
   - Filtrado en vivo (`input` event): actualización instantánea de la lista a medida que se escribe.
   - Filtrado por letra inicial: activación al hacer clic en una letra del abecedario.
   - Normalización de búsqueda: insensible a mayúsculas/minúsculas y eliminación de acentos/tildes (`normalize("NFD")`).
-- [ ] **[QA/Tester - Bruno & Iasser]**:
+- [x] **[QA/Tester - Bruno & Iasser]**:
   - Probar búsquedas con tildes (ej.: "métrica" vs. "metrica").
   - Probar términos inexistentes para asegurar el renderizado del mensaje informativo sin rotura del layout.
   - Verificar anuncio accesible de resultados para lectores de pantalla mediante `aria-live="polite"`.
@@ -365,9 +365,9 @@ Sistemas-de-gestion-de-calidad-del-software-proyecto/
 
 Antes de declarar cerrado el Sprint 2 y dar paso al **Sprint 3 (Bug Fixing y Auditoría QA)**, el equipo debe verificar:
 
-- [ ] **Comparador (US-18):** Al seleccionar 2 o más metodologías, la tabla se renderiza instantáneamente; las filas de atributos se alinean correctamente; el diseño no desborda en pantallas de 375px a 1440px.
-- [ ] **Wizard Encuesta (US-19):** No permite avanzar sin seleccionar una respuesta; el botón de retroceso conserva la selección previa; el cálculo ponderado es determinista y muestra porcentajes correctos; el botón "Reiniciar" limpia la sesión.
-- [ ] **Glosario (US-12):** La búsqueda filtra tanto por coincidencia en el título como en el contenido; el abecedario muestra en gris las letras sin términos asociados; la búsqueda es insensible a acentos y mayúsculas.
+- [x] **Comparador (US-18):** Al seleccionar 2 o más metodologías, la tabla se renderiza instantáneamente; las filas de atributos se alinean correctamente; el diseño no desborda en pantallas de 375px a 1440px.
+- [x] **Wizard Encuesta (US-19):** No permite avanzar sin seleccionar una respuesta; el botón de retroceso conserva la selección previa; el cálculo ponderado es determinista y muestra porcentajes correctos; el botón "Reiniciar" limpia la sesión.
+- [x] **Glosario (US-12):** La búsqueda filtra tanto por coincidencia en el título como en el contenido; el abecedario muestra en gris las letras sin términos asociados; la búsqueda es insensible a acentos y mayúsculas.
 - [ ] **Enlaces (US-14):** Todos los hipervínculos externos cuentan estrictamente con `target="_blank"` y `rel="noopener noreferrer"`; no existen URLs caídas.
 - [ ] **Ejercicios (US-15):** Todas las soluciones inician ocultas; el botón conmuta su etiqueta entre "Mostrar" y "Ocultar"; el panel cuenta con animación fluida sin parpadeos.
 - [ ] **Validación Global:** Consola limpia al 100% en todas las páginas (`index.html`, `calidad.html`, `metodologias.html`, `nosotros.html`, `recursos.html`).

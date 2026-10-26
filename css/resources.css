@@ -1,0 +1,215 @@
+/* ============================================
+   VELORA — resources.css (Sprint 2)
+   Centro de Recursos (recursos.html)
+   Historias: US-12 (Glosario)
+   ============================================ */
+
+/* ====================================================
+   1. GLOSARIO DE TÉRMINOS (US-12)
+   ==================================================== */
+
+.glossary-toolbar {
+    background: var(--surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-md);
+    margin-bottom: 2rem;
+}
+
+.glossary-search {
+    position: relative;
+    max-width: 560px;
+    margin: 0 auto 1.25rem;
+}
+
+.glossary-search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    pointer-events: none;
+}
+
+.glossary-search .form-input {
+    padding-left: 2.75rem;
+    padding-right: 3rem;
+    min-height: 48px;
+}
+
+.glossary-search .form-input::-webkit-search-cancel-button {
+    display: none;
+}
+
+.glossary-clear {
+    position: absolute;
+    right: 0.35rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.glossary-clear:hover {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+.glossary-alphabet {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.3rem;
+}
+
+.glossary-letter {
+    min-width: 36px;
+    height: 36px;
+    padding: 0 0.55rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 0.825rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.glossary-letter:hover:not(:disabled) {
+    border-color: var(--accent-border);
+    color: var(--accent);
+    background: var(--accent-subtle);
+}
+
+.glossary-letter.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--text-on-accent);
+}
+
+.glossary-letter:disabled {
+    color: var(--text-muted);
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.glossary-letter:focus-visible,
+.glossary-clear:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.glossary-count {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 1rem;
+}
+
+.glossary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
+}
+
+.glossary-card {
+    background: var(--surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 0.25s ease;
+}
+
+.glossary-card:hover {
+    border-color: var(--accent-border);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.glossary-badge {
+    display: inline-block;
+    width: fit-content;
+    padding: 0.2rem 0.6rem;
+    background: var(--accent-subtle);
+    color: var(--accent);
+    border-radius: var(--radius-pill);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.75rem;
+}
+
+.glossary-term {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.glossary-definition {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+.glossary-empty {
+    text-align: center;
+    padding: 3rem 1.5rem;
+    border: 1px dashed var(--border-color);
+    border-radius: var(--radius-lg);
+    background: var(--bg-tertiary);
+    color: var(--text-muted);
+}
+
+.glossary-empty svg {
+    margin: 0 auto 0.75rem;
+    color: var(--accent);
+}
+
+.glossary-empty p {
+    margin-bottom: 1.25rem;
+}
+
+/* ====================================================
+   2. RESPONSIVE (Centro de Recursos)
+   ==================================================== */
+
+@media (max-width: 768px) {
+    .glossary-toolbar {
+        padding: 1.25rem 1rem;
+    }
+
+    .glossary-alphabet {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+        scrollbar-width: thin;
+        padding-bottom: 0.4rem;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .glossary-letter {
+        flex-shrink: 0;
+        min-width: 40px;
+        height: 40px;
+    }
+
+    .glossary-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -84,6 +84,14 @@
                                 <span class="dropdown-item-title">Tablero Kanban (US-11)</span>
                                 <span class="dropdown-item-desc">Simulador con límites WIP activos</span>
                             </a>
+                            <a href="#comparador" class="dropdown-item">
+                                <span class="dropdown-item-title">Comparador de Metodologías (US-18)</span>
+                                <span class="dropdown-item-desc">Tabla comparativa en tiempo real</span>
+                            </a>
+                            <a href="#asistente" class="dropdown-item">
+                                <span class="dropdown-item-title">Encuesta de Preferencias (US-19)</span>
+                                <span class="dropdown-item-desc">Recomendación paso a paso</span>
+                            </a>
                             <a href="#faq" class="dropdown-item">
                                 <span class="dropdown-item-title">Preguntas Frecuentes (US-13)</span>
                                 <span class="dropdown-item-desc">Acordeón interactivo de dudas</span>
@@ -91,6 +99,7 @@
                         </div>
                     </li>
 
+                    <li><a href="recursos.html" class="nav-link" data-page="recursos.html">Recursos</a></li>
                     <li><a href="nosotros.html" class="nav-link" data-page="nosotros.html">Sobre Nosotros</a></li>
                 </ul>
 
@@ -136,6 +145,8 @@
                 <li><a href="#ilustraciones" class="subnav-link">Ilustraciones & Lightbox</a></li>
                 <li><a href="#scrum" class="subnav-link">Scrum en Detalle</a></li>
                 <li><a href="#kanban" class="subnav-link">Tablero Kanban</a></li>
+                <li><a href="#comparador" class="subnav-link">Comparador</a></li>
+                <li><a href="#asistente" class="subnav-link">Encuesta</a></li>
                 <li><a href="#faq" class="subnav-link">FAQ</a></li>
             </ul>
         </div>
@@ -162,7 +173,16 @@
                 <a href="#ilustraciones" class="mobile-sublink">↳ Ilustraciones & Lightbox (US-07/09)</a>
                 <a href="#scrum" class="mobile-sublink">↳ Scrum en Detalle (US-10)</a>
                 <a href="#kanban" class="mobile-sublink">↳ Tablero Kanban (US-11)</a>
+                <a href="#comparador" class="mobile-sublink">↳ Comparador de Metodologías (US-18)</a>
+                <a href="#asistente" class="mobile-sublink">↳ Encuesta de Preferencias (US-19)</a>
                 <a href="#faq" class="mobile-sublink">↳ FAQ Ágil (US-13)</a>
+            </div>
+            <a href="recursos.html" class="mobile-nav-link" data-page="recursos.html">
+                <span>Recursos</span>
+                <span class="mobile-nav-badge">Página</span>
+            </a>
+            <div class="mobile-sublinks">
+                <a href="recursos.html#glosario" class="mobile-sublink">↳ Glosario de Términos (US-12)</a>
             </div>
             <a href="nosotros.html" class="mobile-nav-link" data-page="nosotros.html">
                 <span>Sobre Nosotros</span>
@@ -909,6 +929,84 @@
         </section>
 
 
+        <!-- ========== US-18: COMPARADOR INTERACTIVO DE METODOLOGÍAS ========== -->
+        <section class="modules" id="comparador">
+            <div class="container">
+                <div class="section-header">
+                    <h2>US-18: Comparador Interactivo de Metodologías</h2>
+                    <p>Selecciona dos o más metodologías y contrasta en tiempo real su enfoque, roles, entregables y gestión del cambio.</p>
+                </div>
+
+                <div class="comparator-wrapper" id="comparatorApp">
+                    <fieldset class="comparator-picker">
+                        <legend class="comparator-legend">Metodologías a comparar</legend>
+                        <div>
+                            <span class="comparator-group-label">Tradicionales (predictivas)</span>
+                            <div class="comparator-chips" data-family="tradicional"></div>
+                        </div>
+                        <div>
+                            <span class="comparator-group-label">Ágiles (adaptativas)</span>
+                            <div class="comparator-chips" data-family="agil"></div>
+                        </div>
+                    </fieldset>
+
+                    <div class="comparator-toolbar">
+                        <div class="comparator-actions">
+                            <button class="btn btn-secondary" type="button" data-comparator-preset="tradicional-agil">Comparar Tradicional vs. Ágil</button>
+                            <button class="btn btn-secondary" type="button" data-comparator-preset="scrum-kanban">Comparar Scrum vs. Kanban</button>
+                            <button class="btn btn-secondary" type="button" data-comparator-clear>Limpiar selección</button>
+                        </div>
+                        <p class="comparator-status" id="comparatorStatus" role="status" aria-live="polite"></p>
+                    </div>
+
+                    <div class="comparator-table-wrap" id="comparatorTableWrap" tabindex="0" role="region" aria-label="Tabla comparativa de metodologías (desplazable)">
+                        <table class="comparator-table" id="comparatorTable">
+                            <caption class="sr-only">Comparación de las metodologías seleccionadas por atributo</caption>
+                        </table>
+                    </div>
+
+                    <div class="comparator-empty" id="comparatorEmpty" hidden>
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="18" rx="1"/><rect x="14" y="3" width="7" height="18" rx="1"/></svg>
+                        <p id="comparatorEmptyText">Selecciona al menos dos metodologías para comparar.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========== US-19: ENCUESTA DE PREFERENCIAS METODOLÓGICAS ========== -->
+        <section class="modules" id="asistente" style="background: var(--bg-secondary);">
+            <div class="container">
+                <div class="section-header">
+                    <h2>US-19: Encuesta de Preferencias Metodológicas</h2>
+                    <p>Responde 5 preguntas sobre tu proyecto y obtén una recomendación fundamentada sobre qué metodología implementar.</p>
+                </div>
+
+                <div class="wizard-card" id="surveyWizard">
+                    <div class="wizard-progress">
+                        <div class="wizard-progress-meta">
+                            <span id="wizardStepLabel">Paso 1 de 5</span>
+                            <span id="wizardPercent">0% completado</span>
+                        </div>
+                        <div class="wizard-progress-track" id="wizardProgress" role="progressbar" aria-label="Progreso de la encuesta" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                            <div class="wizard-progress-bar" id="wizardProgressBar"></div>
+                        </div>
+                    </div>
+
+                    <div id="wizardBody"></div>
+                    <p class="wizard-error" id="wizardError" role="alert"></p>
+
+                    <div class="wizard-nav" id="wizardNav">
+                        <button class="btn btn-secondary" type="button" id="wizardPrev">← Anterior</button>
+                        <button class="btn btn-primary" type="button" id="wizardNext">Siguiente →</button>
+                    </div>
+
+                    <div class="wizard-result" id="wizardResult" aria-live="polite" hidden></div>
+                </div>
+            </div>
+        </section>
+
+
         <!-- ========== US-13: PREGUNTAS FRECUENTES (FAQ) ========== -->
         <section class="modules" id="faq">
             <div class="container">
@@ -1010,6 +1108,8 @@
                         <li><a href="#ilustraciones">Ilustraciones SVG</a></li>
                         <li><a href="#scrum">Scrum en Detalle</a></li>
                         <li><a href="#kanban">Tablero Kanban</a></li>
+                        <li><a href="#comparador">Comparador</a></li>
+                        <li><a href="#asistente">Encuesta de Preferencias</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
@@ -1039,6 +1139,8 @@
     <!-- Scripts modulares consolidados (Sprint 2) -->
     <script src="js/navbar.js"></script>
     <script src="js/agile.js"></script>
+    <script src="js/comparator.js"></script>
+    <script src="js/survey-wizard.js"></script>
     <script src="js/main.js"></script>
 </body>
 

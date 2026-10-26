@@ -63,7 +63,13 @@ function initAgile() {
         if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
         if (backdrop) backdrop.addEventListener('click', closeLightbox);
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && modal.classList.contains('active')) closeLightbox();
+            if (!modal.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            // Trampa de foco: el botón de cierre es el único control del modal
+            if (e.key === 'Tab' && closeBtn) {
+                e.preventDefault();
+                closeBtn.focus();
+            }
         });
     }
 
@@ -131,13 +137,18 @@ function initAgile() {
 
     if (stepButtons.length && detailTitle) {
         stepButtons.forEach(btn => {
+            btn.setAttribute('aria-pressed', btn.classList.contains('active') ? 'true' : 'false');
             btn.addEventListener('click', () => {
                 const stepKey = btn.getAttribute('data-step');
                 const data = stepData[stepKey];
                 if (!data) return;
 
-                stepButtons.forEach(b => b.classList.remove('active'));
+                stepButtons.forEach(b => {
+                    b.classList.remove('active');
+                    b.setAttribute('aria-pressed', 'false');
+                });
                 btn.classList.add('active');
+                btn.setAttribute('aria-pressed', 'true');
 
                 detailTitle.textContent        = data.title;
                 detailTimebox.textContent      = data.timebox;
@@ -161,6 +172,16 @@ function initAgile() {
         };
 
         const colOrder = ['backlog', 'progress', 'qa', 'done'];
+        const colNames = { backlog: 'Backlog', progress: 'En Proceso', qa: 'Pruebas QA', done: 'Finalizado' };
+
+        function moveCard(card, targetColId) {
+            const targetIndex = colOrder.indexOf(targetColId);
+            const targetContainer = columns[targetColId]?.el?.querySelector('.kanban-cards-container');
+            if (targetIndex === -1 || !targetContainer) return;
+            targetContainer.appendChild(card);
+            updateCardButtons(card, targetIndex);
+            updateWipCounts();
+        }
 
         function updateWipCounts() {
             let totalActive = 0;
@@ -186,8 +207,8 @@ function initAgile() {
 
             const statActive = document.getElementById('kanbanStatActive');
             const statDone = document.getElementById('kanbanStatDone');
-            if (statActive) statActive.textContent = `${totalActive} Activas`;
-            if (statDone) statDone.textContent = `${totalDone} Finalizadas`;
+            if (statActive) statActive.textContent = `${totalActive} ${totalActive === 1 ? 'Activa' : 'Activas'}`;
+            if (statDone) statDone.textContent = `${totalDone} ${totalDone === 1 ? 'Finalizada' : 'Finalizadas'}`;
         }
 
         board.addEventListener('click', (e) => {
@@ -196,7 +217,7 @@ function initAgile() {
 
             const direction = btn.getAttribute('data-dir');
             const card = btn.closest('.kanban-card');
-            const currentCol = card.closest('.kanban-col');
+            const currentCol = card ? card.closest('.kanban-col') : null;
             if (!card || !currentCol) return;
 
             const currentColId = currentCol.id.replace('col-', '');
@@ -205,22 +226,71 @@ function initAgile() {
 
             const targetIndex = direction === 'next' ? currentIndex + 1 : currentIndex - 1;
             if (targetIndex >= 0 && targetIndex < colOrder.length) {
-                const targetColId = colOrder[targetIndex];
-                const targetContainer = columns[targetColId].el.querySelector('.kanban-cards-container');
-                if (targetContainer) {
-                    targetContainer.appendChild(card);
-                    updateCardButtons(card, targetIndex);
-                    updateWipCounts();
-                }
+                moveCard(card, colOrder[targetIndex]);
+
+                // Mantener el foco del teclado en la tarjeta movida
+                const sameBtn = card.querySelector(`.btn-move[data-dir="${direction}"]`);
+                const otherBtn = card.querySelector(`.btn-move[data-dir="${direction === 'next' ? 'prev' : 'next'}"]`);
+                (sameBtn && sameBtn.style.visibility !== 'hidden' ? sameBtn : otherBtn)?.focus();
             }
         });
 
         function updateCardButtons(card, colIndex) {
             const prevBtn = card.querySelector('.btn-move[data-dir="prev"]');
             const nextBtn = card.querySelector('.btn-move[data-dir="next"]');
-            if (prevBtn) prevBtn.style.visibility = colIndex === 0 ? 'hidden' : 'visible';
-            if (nextBtn) nextBtn.style.visibility = colIndex === colOrder.length - 1 ? 'hidden' : 'visible';
+            const code = card.querySelector('.card-code')?.textContent || 'tarjeta';
+            if (prevBtn) {
+                prevBtn.style.visibility = colIndex === 0 ? 'hidden' : 'visible';
+                if (colIndex > 0) {
+                    prevBtn.title = `Mover a ${colNames[colOrder[colIndex - 1]]}`;
+                    prevBtn.setAttribute('aria-label', `Mover ${code} a ${colNames[colOrder[colIndex - 1]]}`);
+                }
+            }
+            if (nextBtn) {
+                nextBtn.style.visibility = colIndex === colOrder.length - 1 ? 'hidden' : 'visible';
+                if (colIndex < colOrder.length - 1) {
+                    nextBtn.title = `Mover a ${colNames[colOrder[colIndex + 1]]}`;
+                    nextBtn.setAttribute('aria-label', `Mover ${code} a ${colNames[colOrder[colIndex + 1]]}`);
+                }
+            }
         }
+
+        // Arrastrar y soltar (drag-and-drop) entre columnas
+        let draggedCard = null;
+
+        board.querySelectorAll('.kanban-card').forEach(card => {
+            card.setAttribute('draggable', 'true');
+            card.addEventListener('dragstart', (e) => {
+                draggedCard = card;
+                card.classList.add('dragging');
+                e.dataTransfer.effectAllowed = 'move';
+                e.dataTransfer.setData('text/plain', card.id);
+            });
+            card.addEventListener('dragend', () => {
+                card.classList.remove('dragging');
+                draggedCard = null;
+                board.querySelectorAll('.kanban-cards-container.drag-over').forEach(c => c.classList.remove('drag-over'));
+            });
+        });
+
+        colOrder.forEach(colKey => {
+            const container = columns[colKey].el?.querySelector('.kanban-cards-container');
+            if (!container) return;
+            container.addEventListener('dragover', (e) => {
+                if (!draggedCard) return;
+                e.preventDefault();
+                e.dataTransfer.dropEffect = 'move';
+                container.classList.add('drag-over');
+            });
+            container.addEventListener('dragleave', (e) => {
+                if (!container.contains(e.relatedTarget)) container.classList.remove('drag-over');
+            });
+            container.addEventListener('drop', (e) => {
+                e.preventDefault();
+                container.classList.remove('drag-over');
+                if (draggedCard) moveCard(draggedCard, colKey);
+            });
+        });
 
         document.querySelectorAll('.kanban-card').forEach(card => {
             const currentCol = card.closest('.kanban-col');

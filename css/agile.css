@@ -753,6 +753,17 @@
     cursor: grabbing;
 }
 
+.kanban-card.dragging {
+    opacity: 0.5;
+}
+
+.kanban-cards-container.drag-over {
+    outline: 2px dashed var(--accent);
+    outline-offset: 4px;
+    border-radius: var(--radius-md);
+    background: var(--accent-subtle);
+}
+
 .card-top {
     display: flex;
     justify-content: space-between;
