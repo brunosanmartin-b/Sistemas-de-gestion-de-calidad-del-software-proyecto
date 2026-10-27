@@ -343,3 +343,168 @@ function initAgile() {
         }
     }
 }
+
+
+// ============================================
+// 4. SDLC TIMELINE (US-05) & MODELOS TRADICIONALES (US-06)
+// ============================================
+function initSdlcAndTraditional() {
+    // ---- US-05: SDLC Timeline Interactivo ----
+    const sdlcNodes = document.querySelectorAll('.sdlc-step-btn');
+    const sdlcProgressFill = document.getElementById('sdlcProgressFill');
+    const sdlcStageBadge = document.getElementById('sdlcStageBadge');
+    const sdlcStageTitle = document.getElementById('sdlcStageTitle');
+    const sdlcStageDesc = document.getElementById('sdlcStageDesc');
+    const sdlcStageDeliverables = document.getElementById('sdlcStageDeliverables');
+    const sdlcStageQaRole = document.getElementById('sdlcStageQaRole');
+    const sdlcPrevBtn = document.getElementById('sdlcPrevBtn');
+    const sdlcNextBtn = document.getElementById('sdlcNextBtn');
+
+    const sdlcStagesData = [
+        {
+            badge: 'Fase 1 de 6 • Análisis y Definición',
+            title: '1. Requisitos (Requirements)',
+            desc: 'Se recopilan, analizan y documentan las necesidades del cliente, usuarios finales y partes interesadas (stakeholders). Define el "qué" se va a construir, sus restricciones técnicas, normativas y criterios de aceptación.',
+            deliverables: 'Especificación de Requisitos de Software (SRS) o Product Backlog inicial con Historias de Usuario (INVEST) y Criterios de Aceptación.',
+            qaRole: 'Prevención temprana (QA Proactivo): Validar que los requisitos sean claros, completos, no ambiguos y verificables (testables) antes de diseñar (Definition of Ready - DoR).'
+        },
+        {
+            badge: 'Fase 2 de 6 • Arquitectura y UX/UI',
+            title: '2. Diseño (Design)',
+            desc: 'Se transforma el conjunto de requisitos en una arquitectura técnica y visual. Abarca el diseño de alto nivel (módulos, bases de datos, APIs) y el diseño de interfaz y experiencia de usuario (wireframes, guía de estilos y prototipos).',
+            deliverables: 'Diagramas de arquitectura, esquemas de datos, guía de estilos UI/UX, prototipos interactivos y matriz de trazabilidad técnica.',
+            qaRole: 'Revisión estática de diseño: Auditar cumplimiento de estándares de accesibilidad (WCAG 2.1 AA), coherencia de flujos de usuario y diseño del Plan Maestro de Pruebas.'
+        },
+        {
+            badge: 'Fase 3 de 6 • Construcción de Código',
+            title: '3. Desarrollo / Codificación (Development)',
+            desc: 'Los desarrolladores traducen el diseño y los requerimientos en código fuente ejecutable siguiendo estándares de codificación limpia, control de versiones (Git) e integración continua.',
+            deliverables: 'Código fuente modular (HTML5, CSS3, JS ES6+), pruebas unitarias automatizadas (TDD), commits documentados y pull requests revisados.',
+            qaRole: 'Aseguramiento en código: Ejecución de linters y análisis estático (ESLint, SonarQube), programación en parejas (Pair Programming), Poka-yoke y pruebas unitarias.'
+        },
+        {
+            badge: 'Fase 4 de 6 • Verificación y Validación',
+            title: '4. Pruebas / Aseguramiento (Testing & QA)',
+            desc: 'Se evalúa el software integrado de forma sistemática para detectar defectos y verificar que cumple tanto con las especificaciones técnicas como con las expectativas del negocio.',
+            deliverables: 'Matriz de casos de prueba ejecutada (Pass / Fail), reporte de bugs con severidad y pasos de reproducción, y aprobación de la Definición de Hecho (DoD).',
+            qaRole: 'Control de Calidad (QC): Ejecución de pruebas de Caja Negra, Caja Blanca, Integración, Sistema, Regresión, Responsividad (375px a 1440px) y Aceptación (UAT).'
+        },
+        {
+            badge: 'Fase 5 de 6 • Puesta en Producción',
+            title: '5. Despliegue (Deployment)',
+            desc: 'El incremento o producto validado por QA se libera al entorno de producción o se entrega formalmente al cliente y usuarios finales para su uso operativo real.',
+            deliverables: 'Release en producción, notas de versión (Release Notes), manuales o guías de usuario y verificación de humo post-despliegue (Smoke Tests).',
+            qaRole: 'Validación de entrega: Ejecutar pruebas de humo (Smoke Testing) en el entorno final, comprobar ausencia de enlaces rotos y consola 100% limpia.'
+        },
+        {
+            badge: 'Fase 6 de 6 • Evolución y Soporte',
+            title: '6. Mantenimiento y Mejora Continua (Maintenance)',
+            desc: 'Una vez en uso, el sistema se monitorea para corregir incidencias emergentes (mantenimiento correctivo), adaptarse a nuevos entornos (adaptativo) e incorporar nuevas mejoras de valor (evolutivo).',
+            deliverables: 'Métricas de estabilidad (MTBF, densidad de defectos), parches evolutivos, retroalimentación de usuarios y elementos priorizados para nuevos Sprints.',
+            qaRole: 'Monitoreo continuo: Analizar métricas de calidad en uso (ISO/IEC 2502n), prevenir deuda técnica mediante refactorización y liderar retrospectivas (Ishikawa / Árbol).'
+        }
+    ];
+
+    let activeSdlcIndex = 0;
+
+    function setSdlcStage(index, focusNode) {
+        if (index < 0 || index >= sdlcStagesData.length) return;
+        activeSdlcIndex = index;
+        const stage = sdlcStagesData[index];
+
+        sdlcNodes.forEach((btn, idx) => {
+            const isCurrent = idx === index;
+            const isCompleted = idx < index;
+            btn.classList.toggle('active', isCurrent);
+            btn.classList.toggle('completed', isCompleted);
+            btn.setAttribute('aria-selected', isCurrent ? 'true' : 'false');
+            if (isCurrent && focusNode) btn.focus();
+        });
+
+        if (sdlcProgressFill) {
+            const pct = (index / (sdlcStagesData.length - 1)) * 100;
+            sdlcProgressFill.style.width = `${pct}%`;
+        }
+
+        if (sdlcStageBadge) sdlcStageBadge.textContent = stage.badge;
+        if (sdlcStageTitle) sdlcStageTitle.textContent = stage.title;
+        if (sdlcStageDesc) sdlcStageDesc.textContent = stage.desc;
+        if (sdlcStageDeliverables) sdlcStageDeliverables.textContent = stage.deliverables;
+        if (sdlcStageQaRole) sdlcStageQaRole.textContent = stage.qaRole;
+
+        if (sdlcPrevBtn) sdlcPrevBtn.disabled = index === 0;
+        if (sdlcNextBtn) sdlcNextBtn.disabled = index === sdlcStagesData.length - 1;
+    }
+
+    if (sdlcNodes.length) {
+        sdlcNodes.forEach((btn, idx) => {
+            btn.addEventListener('click', () => setSdlcStage(idx, false));
+            btn.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    setSdlcStage((idx + 1) % sdlcStagesData.length, true);
+                } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    setSdlcStage((idx - 1 + sdlcStagesData.length) % sdlcStagesData.length, true);
+                }
+            });
+        });
+
+        if (sdlcPrevBtn) {
+            sdlcPrevBtn.addEventListener('click', () => setSdlcStage(activeSdlcIndex - 1, false));
+        }
+        if (sdlcNextBtn) {
+            sdlcNextBtn.addEventListener('click', () => setSdlcStage(activeSdlcIndex + 1, false));
+        }
+
+        setSdlcStage(0, false);
+    }
+
+    // ---- US-06: Modelos Tradicionales Navegación Interna ----
+    const tradTabs = document.querySelectorAll('.trad-nav-btn');
+    const tradPanels = document.querySelectorAll('.trad-model-card');
+
+    if (tradTabs.length && tradPanels.length) {
+        function selectTradModel(filterKey, focusTab) {
+            tradTabs.forEach(btn => {
+                const isSelected = btn.getAttribute('data-trad-model') === filterKey;
+                btn.classList.toggle('active', isSelected);
+                btn.setAttribute('aria-selected', isSelected ? 'true' : 'false');
+                if (isSelected && focusTab) btn.focus();
+            });
+
+            tradPanels.forEach(panel => {
+                const modelId = panel.getAttribute('data-model-id');
+                const shouldShow = filterKey === 'all' || modelId === filterKey;
+                panel.hidden = !shouldShow;
+            });
+        }
+
+        tradTabs.forEach((btn, idx) => {
+            btn.addEventListener('click', () => {
+                selectTradModel(btn.getAttribute('data-trad-model'), false);
+            });
+            btn.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight') {
+                    e.preventDefault();
+                    const next = tradTabs[(idx + 1) % tradTabs.length];
+                    selectTradModel(next.getAttribute('data-trad-model'), true);
+                } else if (e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    const prev = tradTabs[(idx - 1 + tradTabs.length) % tradTabs.length];
+                    selectTradModel(prev.getAttribute('data-trad-model'), true);
+                }
+            });
+        });
+    }
+}
+
+const _originalInitAgile = initAgile;
+initAgile = function() {
+    _originalInitAgile();
+    initSdlcAndTraditional();
+};
+
+if (typeof window !== 'undefined') {
+    window.initAgile = initAgile;
+}

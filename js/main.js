@@ -19,7 +19,7 @@ function initVelora() {
         initToolsFilter();
     }
 
-    // ---- Módulos de Sprint 2 (metodologias.html / nosotros.html) ----
+    // ---- Módulos de Sprint 2 y Procesos (metodologias.html / nosotros.html / recursos.html) ----
     if (typeof initAgile === 'function') {
         initAgile();
     }
@@ -34,6 +34,9 @@ function initVelora() {
     }
     if (typeof initGlossary === 'function') {
         initGlossary();
+    }
+    if (typeof initPracticeExercises === 'function') {
+        initPracticeExercises();
     }
 
     // ---- Theme Toggle ----

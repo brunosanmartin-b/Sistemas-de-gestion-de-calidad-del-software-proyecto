@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Metodologías Ágiles & Procesos | VELORA — SGCS 2026</title>
-    <meta name="description" content="Aprende Scrum, Kanban, XP y el Manifiesto Ágil con diagramas interactivos, simulación de tablero Kanban con límites WIP y visor Lightbox.">
+    <meta name="description" content="Explora el Ciclo de Vida del Software (SDLC), Modelos Tradicionales, Manifiesto Ágil, Scrum, Kanban con límites WIP, Comparador y Encuesta interactiva.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -40,15 +40,15 @@
                             <div class="dropdown-divider"></div>
                             <span class="dropdown-header">Secciones del Módulo</span>
                             <a href="calidad.html#fundamentos" class="dropdown-item">
-                                <span class="dropdown-item-title">Fundamentos ISO</span>
+                                <span class="dropdown-item-title">Fundamentos ISO (US-02)</span>
                                 <span class="dropdown-item-desc">Normas ISO 9126 y 25000</span>
                             </a>
                             <a href="calidad.html#tecnicas" class="dropdown-item">
-                                <span class="dropdown-item-title">Técnicas QA</span>
+                                <span class="dropdown-item-title">Técnicas QA (US-03)</span>
                                 <span class="dropdown-item-desc">8 Flip-cards interactivas</span>
                             </a>
                             <a href="calidad.html#herramientas" class="dropdown-item">
-                                <span class="dropdown-item-title">Herramientas QA</span>
+                                <span class="dropdown-item-title">Herramientas QA (US-04)</span>
                                 <span class="dropdown-item-desc">Filtro dinámico de 12 tools</span>
                             </a>
                         </div>
@@ -61,13 +61,21 @@
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
                         </a>
                         <div class="dropdown-menu">
-                            <span class="dropdown-header">Módulo Sprint 2</span>
+                            <span class="dropdown-header">Módulo Procesos y Ágil</span>
                             <a href="metodologias.html" class="dropdown-item">
                                 <span class="dropdown-item-title">Ver Módulo Completo</span>
                                 <span class="dropdown-item-desc">Estás en esta página (metodologias.html)</span>
                             </a>
                             <div class="dropdown-divider"></div>
                             <span class="dropdown-header">Secciones en esta página</span>
+                            <a href="#sdlc" class="dropdown-item">
+                                <span class="dropdown-item-title">Ciclo de Vida SDLC (US-05)</span>
+                                <span class="dropdown-item-desc">Línea de tiempo interactiva de 6 fases</span>
+                            </a>
+                            <a href="#tradicionales" class="dropdown-item">
+                                <span class="dropdown-item-title">Modelos Tradicionales (US-06)</span>
+                                <span class="dropdown-item-desc">Cascada, Modelo en V e Iterativo</span>
+                            </a>
                             <a href="#manifiesto" class="dropdown-item">
                                 <span class="dropdown-item-title">Manifiesto Ágil (US-08)</span>
                                 <span class="dropdown-item-desc">4 Valores y 12 Principios</span>
@@ -99,7 +107,35 @@
                         </div>
                     </li>
 
-                    <li><a href="recursos.html" class="nav-link" data-page="recursos.html">Recursos</a></li>
+                    <!-- Módulo Recursos -->
+                    <li class="nav-item-dropdown">
+                        <a href="recursos.html" class="nav-link" data-page="recursos.html">
+                            Recursos
+                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        </a>
+                        <div class="dropdown-menu">
+                            <span class="dropdown-header">Centro de Aprendizaje</span>
+                            <a href="recursos.html" class="dropdown-item">
+                                <span class="dropdown-item-title">Ver Todos los Recursos</span>
+                                <span class="dropdown-item-desc">Centro de Recursos (recursos.html)</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <span class="dropdown-header">Secciones de Recursos</span>
+                            <a href="recursos.html#glosario" class="dropdown-item">
+                                <span class="dropdown-item-title">Glosario Interactivo (US-12)</span>
+                                <span class="dropdown-item-desc">Buscador en vivo y filtro A-Z</span>
+                            </a>
+                            <a href="recursos.html#ejercicios" class="dropdown-item">
+                                <span class="dropdown-item-title">Casos Prácticos (US-15)</span>
+                                <span class="dropdown-item-desc">4 escenarios reales con solución</span>
+                            </a>
+                            <a href="recursos.html#enlaces" class="dropdown-item">
+                                <span class="dropdown-item-title">Enlaces de Interés (US-14)</span>
+                                <span class="dropdown-item-desc">Bibliografía y recursos externos</span>
+                            </a>
+                        </div>
+                    </li>
+
                     <li><a href="nosotros.html" class="nav-link" data-page="nosotros.html">Sobre Nosotros</a></li>
                 </ul>
 
@@ -134,14 +170,16 @@
     </header>
 
     <!-- Subnav de secciones internas en metodologias.html -->
-    <div class="subnav" aria-label="Navegación interna de metodologías ágiles">
+    <div class="subnav" aria-label="Navegación interna de procesos y metodologías">
         <div class="container subnav-container">
             <span class="subnav-label">
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
                 En esta página:
             </span>
             <ul class="subnav-links">
-                <li><a href="#manifiesto" class="subnav-link active">Manifiesto Ágil</a></li>
+                <li><a href="#sdlc" class="subnav-link active">Ciclo SDLC</a></li>
+                <li><a href="#tradicionales" class="subnav-link">Modelos Tradicionales</a></li>
+                <li><a href="#manifiesto" class="subnav-link">Manifiesto Ágil</a></li>
                 <li><a href="#ilustraciones" class="subnav-link">Ilustraciones & Lightbox</a></li>
                 <li><a href="#scrum" class="subnav-link">Scrum en Detalle</a></li>
                 <li><a href="#kanban" class="subnav-link">Tablero Kanban</a></li>
@@ -169,6 +207,8 @@
                 <span class="mobile-nav-badge">Página actual</span>
             </a>
             <div class="mobile-sublinks">
+                <a href="#sdlc" class="mobile-sublink">↳ Ciclo de Vida SDLC (US-05)</a>
+                <a href="#tradicionales" class="mobile-sublink">↳ Modelos Tradicionales (US-06)</a>
                 <a href="#manifiesto" class="mobile-sublink">↳ Manifiesto Ágil (US-08)</a>
                 <a href="#ilustraciones" class="mobile-sublink">↳ Ilustraciones & Lightbox (US-07/09)</a>
                 <a href="#scrum" class="mobile-sublink">↳ Scrum en Detalle (US-10)</a>
@@ -183,6 +223,8 @@
             </a>
             <div class="mobile-sublinks">
                 <a href="recursos.html#glosario" class="mobile-sublink">↳ Glosario de Términos (US-12)</a>
+                <a href="recursos.html#ejercicios" class="mobile-sublink">↳ Casos Prácticos (US-15)</a>
+                <a href="recursos.html#enlaces" class="mobile-sublink">↳ Enlaces de Interés (US-14)</a>
             </div>
             <a href="nosotros.html" class="mobile-nav-link" data-page="nosotros.html">
                 <span>Sobre Nosotros</span>
@@ -204,9 +246,321 @@
         <section class="hero" id="agile-hero">
             <div class="container">
                 <div class="hero-content">
-                    <span class="tech-badge">SPRINT 2 • VELORA SGCS 2026</span>
-                    <h1>Procesos y Metodologías Ágiles: <span class="gradient-text">Scrum, Kanban y Entrega Continua</span></h1>
-                    <p>Comprende cómo los marcos ágiles potencian la calidad del software a través de ciclos iterativos, control visual del flujo y retroalimentación constante.</p>
+                    <span class="tech-badge">PROCESOS DE DESARROLLO & AGILIDAD • VELORA SGCS 2026</span>
+                    <h1>Ciclo de Vida, Modelos Tradicionales y <span class="gradient-text">Metodologías Ágiles</span></h1>
+                    <p>Explora interactivamente las 6 fases del Ciclo de Vida del Software (SDLC), contrasta los modelos tradicionales predictivos y domina Scrum, Kanban y la entrega continua.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== US-05: CICLO DE VIDA DEL DESARROLLO DE SOFTWARE (SDLC) ========== -->
+        <section class="modules" id="sdlc">
+            <div class="container">
+                <div class="section-header">
+                    <span class="tech-badge">US-05 • Ingeniería de Procesos</span>
+                    <h2>US-05: Ciclo de Vida del Desarrollo de Software (SDLC)</h2>
+                    <p>El SDLC (Software Development Life Cycle) estructura el proceso de construcción de software en 6 etapas fundamentales para garantizar la calidad técnica, el cumplimiento de requisitos y la mantenibilidad a largo plazo.</p>
+                </div>
+
+                <div class="sdlc-timeline-wrapper" aria-label="Línea de tiempo interactiva del Ciclo de Vida del Desarrollo de Software">
+                    <!-- Barra de Progreso y Botones de las 6 Etapas -->
+                    <div class="sdlc-stepper-track">
+                        <div class="sdlc-progress-line" aria-hidden="true">
+                            <div class="sdlc-progress-fill" id="sdlcProgressFill" style="width: 0%;"></div>
+                        </div>
+
+                        <div class="sdlc-steps-grid" role="tablist" aria-label="Etapas del SDLC">
+                            <!-- Etapa 1 -->
+                            <button class="sdlc-step-btn active" type="button" role="tab" aria-selected="true" data-sdlc-stage="requisitos">
+                                <span class="sdlc-step-circle">01</span>
+                                <span class="sdlc-step-name">1. Requisitos</span>
+                                <span class="sdlc-step-sub">Análisis y Alcance</span>
+                            </button>
+
+                            <!-- Etapa 2 -->
+                            <button class="sdlc-step-btn" type="button" role="tab" aria-selected="false" data-sdlc-stage="diseno">
+                                <span class="sdlc-step-circle">02</span>
+                                <span class="sdlc-step-name">2. Diseño</span>
+                                <span class="sdlc-step-sub">Arquitectura y UI/UX</span>
+                            </button>
+
+                            <!-- Etapa 3 -->
+                            <button class="sdlc-step-btn" type="button" role="tab" aria-selected="false" data-sdlc-stage="desarrollo">
+                                <span class="sdlc-step-circle">03</span>
+                                <span class="sdlc-step-name">3. Desarrollo</span>
+                                <span class="sdlc-step-sub">Codificación e Integración</span>
+                            </button>
+
+                            <!-- Etapa 4 -->
+                            <button class="sdlc-step-btn" type="button" role="tab" aria-selected="false" data-sdlc-stage="pruebas">
+                                <span class="sdlc-step-circle">04</span>
+                                <span class="sdlc-step-name">4. Pruebas (QA)</span>
+                                <span class="sdlc-step-sub">Verificación y Validación</span>
+                            </button>
+
+                            <!-- Etapa 5 -->
+                            <button class="sdlc-step-btn" type="button" role="tab" aria-selected="false" data-sdlc-stage="despliegue">
+                                <span class="sdlc-step-circle">05</span>
+                                <span class="sdlc-step-name">5. Despliegue</span>
+                                <span class="sdlc-step-sub">Release a Producción</span>
+                            </button>
+
+                            <!-- Etapa 6 -->
+                            <button class="sdlc-step-btn" type="button" role="tab" aria-selected="false" data-sdlc-stage="mantenimiento">
+                                <span class="sdlc-step-circle">06</span>
+                                <span class="sdlc-step-name">6. Mantenimiento</span>
+                                <span class="sdlc-step-sub">Evolución y Soporte</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Panel de Detalle de la Etapa Seleccionada -->
+                    <div class="sdlc-detail-panel" id="sdlcDetailPanel" role="tabpanel" aria-live="polite">
+                        <div class="sdlc-detail-header">
+                            <div>
+                                <span class="sdlc-stage-badge" id="sdlcStageBadge">Etapa 1 de 6 • Ingeniería de Requisitos</span>
+                                <h3 id="sdlcStageTitle">1. Análisis y Definición de Requisitos</h3>
+                            </div>
+                            <span class="badge" style="background: var(--accent-subtle); color: var(--accent); font-size: 0.78rem;">Usa las flechas ◀ ▶ para navegar</span>
+                        </div>
+
+                        <p class="sdlc-detail-desc" id="sdlcStageDesc">
+                            Fase inicial crítica donde se recolectan, analizan, priorizan y documentan las necesidades de los usuarios, las reglas del negocio y las restricciones técnicas o legales del sistema a construir.
+                        </p>
+
+                        <div class="sdlc-detail-columns">
+                            <div class="sdlc-info-box">
+                                <h4>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                                    Entregables y Artefactos Clave
+                                </h4>
+                                <ul id="sdlcStageDeliverables">
+                                    <li>Especificación de Requisitos de Software (SRS) o Product Backlog inicial</li>
+                                    <li>Historias de Usuario con Criterios de Aceptación (formato Given/When/Then)</li>
+                                    <li>Matriz de Trazabilidad y análisis de viabilidad técnica y económica</li>
+                                </ul>
+                            </div>
+
+                            <div class="sdlc-info-box">
+                                <h4>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                                    Rol del Aseguramiento de Calidad (SQA)
+                                </h4>
+                                <p id="sdlcStageQaRole">
+                                    Prevención temprana de defectos (Shift-Left Testing): revisión de ambigüedades, completitud y verificabilidad de cada requisito antes de diseñar o escribir código.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="sdlc-nav-controls">
+                            <button class="btn btn-secondary" type="button" id="sdlcPrevBtn" disabled>← Etapa Anterior</button>
+                            <button class="btn btn-primary" type="button" id="sdlcNextBtn">Siguiente Etapa →</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== US-06: MODELOS TRADICIONALES DE DESARROLLO ========== -->
+        <section class="modules" id="tradicionales" style="background: var(--bg-secondary);">
+            <div class="container">
+                <div class="section-header">
+                    <span class="tech-badge">US-06 • Enfoques Predictivos y Evolutivos</span>
+                    <h2>US-06: Modelos Tradicionales de Desarrollo de Software</h2>
+                    <p>Analiza la estructura secuencial y de verificación de los modelos clásicos: el Modelo en Cascada, el Modelo en V y el Modelo Iterativo e Incremental, identificando claramente sus ventajas, desventajas y escenarios óptimos.</p>
+                </div>
+
+                <!-- Barra de navegación interna de Modelos Tradicionales -->
+                <div class="trad-models-toolbar" role="toolbar" aria-label="Filtrar modelos tradicionales">
+                    <span class="trad-toolbar-label">Explorar modelo:</span>
+                    <div class="trad-nav-pills">
+                        <button class="trad-nav-btn active" type="button" data-trad-target="all" aria-pressed="true">Ver los 3 Modelos</button>
+                        <button class="trad-nav-btn" type="button" data-trad-target="cascada" aria-pressed="false">1. Modelo en Cascada (Waterfall)</button>
+                        <button class="trad-nav-btn" type="button" data-trad-target="modelo-v" aria-pressed="false">2. Modelo en V (Verificación y Validación)</button>
+                        <button class="trad-nav-btn" type="button" data-trad-target="iterativo" aria-pressed="false">3. Modelo Iterativo e Incremental</button>
+                    </div>
+                </div>
+
+                <div class="trad-models-grid">
+                    <!-- MODELO 1: CASCADA (WATERFALL) -->
+                    <article class="trad-model-card" data-model-id="cascada">
+                        <div class="trad-model-header">
+                            <div class="trad-model-title-group">
+                                <span class="trad-model-tag">Enfoque Lineal y Secuencial • Winston Royce (1970)</span>
+                                <h3>1. Modelo en Cascada (Waterfall)</h3>
+                            </div>
+                            <span class="badge" style="background: var(--accent-subtle); color: var(--accent);">Alta Predictibilidad Inicial</span>
+                        </div>
+
+                        <p class="trad-model-summary">
+                            Organiza el desarrollo en fases estrictamente lineales y secuenciales donde cada etapa debe completarse, documentarse y aprobarse formalmente (hito de control) antes de avanzar a la siguiente, sin superposición entre fases.
+                        </p>
+
+                        <!-- Flujo de etapas -->
+                        <div class="trad-flow-diagram" aria-label="Flujo secuencial del Modelo en Cascada">
+                            <span class="trad-flow-step">1. Requisitos</span>
+                            <span class="trad-flow-arrow" aria-hidden="true">→</span>
+                            <span class="trad-flow-step">2. Diseño del Sistema</span>
+                            <span class="trad-flow-arrow" aria-hidden="true">→</span>
+                            <span class="trad-flow-step">3. Implementación</span>
+                            <span class="trad-flow-arrow" aria-hidden="true">→</span>
+                            <span class="trad-flow-step">4. Verificación (Testing)</span>
+                            <span class="trad-flow-arrow" aria-hidden="true">→</span>
+                            <span class="trad-flow-step">5. Operación y Mantenimiento</span>
+                        </div>
+
+                        <!-- Bloques comparativos: Ventajas (Verde) vs Desventajas (Rojo) -->
+                        <div class="trad-pros-cons-grid">
+                            <div class="trad-box-pros">
+                                <h4>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                    Ventajas Principales
+                                </h4>
+                                <ul>
+                                    <li>Estructura simple, clara y fácil de gestionar mediante cronogramas de hitos fijos (Gantt).</li>
+                                    <li>Documentación exhaustiva en cada fase, facilitando auditorías y transferencia de conocimiento.</li>
+                                    <li>Presupuesto y alcance acordados desde el inicio del contrato cuando no existen incertidumbres.</li>
+                                    <li>Hitos de control bien definidos que evitan avanzar sin aprobación formal del diseño.</li>
+                                </ul>
+                            </div>
+
+                            <div class="trad-box-cons">
+                                <h4>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                                    Desventajas y Riesgos
+                                </h4>
+                                <ul>
+                                    <li>Alta rigidez frente al cambio: retroceder a fases anteriores implica un costo y retrabajo muy elevados.</li>
+                                    <li>Las pruebas ocurren tardíamente al final del ciclo, descubriendo defectos arquitectónicos demasiado tarde.</li>
+                                    <li>El cliente no ve software funcionando hasta la etapa final del proyecto.</li>
+                                    <li>Riesgo de construir un sistema que cumpla el documento inicial pero ya no se adapte a la necesidad real.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="trad-when-box">
+                            <strong>¿Cuándo elegir el Modelo en Cascada?</strong>
+                            <span>Proyectos con requisitos 100% estables y conocidos de antemano, licitaciones públicas de alcance cerrado, migraciones técnicas acotadas o sistemas regulados donde la normativa exige aprobar toda la documentación antes de codificar.</span>
+                        </div>
+                    </article>
+
+                    <!-- MODELO 2: MODELO EN V -->
+                    <article class="trad-model-card" data-model-id="modelo-v">
+                        <div class="trad-model-header">
+                            <div class="trad-model-title-group">
+                                <span class="trad-model-tag">Verificación y Validación Simétrica • Paul Rook (1986)</span>
+                                <h3>2. Modelo en V (V-Model)</h3>
+                            </div>
+                            <span class="badge" style="background: rgba(16, 185, 129, 0.15); color: #10B981;">Máxima Trazabilidad QA</span>
+                        </div>
+
+                        <p class="trad-model-summary">
+                            Evolución directa del modelo en cascada que establece una relación simétrica entre cada fase de definición/diseño (rama izquierda de Verificación) y su correspondiente nivel de pruebas (rama derecha de Validación), con la codificación en el vértice inferior.
+                        </p>
+
+                        <!-- Flujo de emparejamiento en V -->
+                        <div class="trad-flow-diagram" aria-label="Correspondencia de fases en el Modelo en V">
+                            <span class="trad-flow-step">Requisitos de Usuario ↔ Pruebas de Aceptación (UAT)</span>
+                            <span class="trad-flow-arrow" aria-hidden="true">•</span>
+                            <span class="trad-flow-step">Diseño del Sistema ↔ Pruebas de Sistema</span>
+                            <span class="trad-flow-arrow" aria-hidden="true">•</span>
+                            <span class="trad-flow-step">Diseño Arquitectónico ↔ Pruebas de Integración</span>
+                            <span class="trad-flow-arrow" aria-hidden="true">•</span>
+                            <span class="trad-flow-step">Diseño de Módulo ↔ Pruebas Unitarias</span>
+                        </div>
+
+                        <!-- Bloques comparativos: Ventajas (Verde) vs Desventajas (Rojo) -->
+                        <div class="trad-pros-cons-grid">
+                            <div class="trad-box-pros">
+                                <h4>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                    Ventajas Principales
+                                </h4>
+                                <ul>
+                                    <li>Los planes y casos de prueba se diseñan tempranamente en paralelo a cada fase de especificación.</li>
+                                    <li>Trazabilidad bidireccional completa entre cada requisito y el caso de prueba que lo valida.</li>
+                                    <li>Detecta ambigüedades e inconsistencias en los documentos de requisitos y diseño antes de programar.</li>
+                                    <li>Estándar de excelencia para certificaciones de seguridad funcional (ISO 26262, IEC 62304, DO-178C).</li>
+                                </ul>
+                            </div>
+
+                            <div class="trad-box-cons">
+                                <h4>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                                    Desventajas y Riesgos
+                                </h4>
+                                <ul>
+                                    <li>Mantiene la rigidez secuencial: si cambia un requisito, debe actualizarse tanto el diseño como el plan de pruebas asociado.</li>
+                                    <li>No produce prototipos ni entregas parciales operativas en etapas tempranas.</li>
+                                    <li>Alta sobrecarga documental para proyectos comerciales pequeños o startups con requisitos volátiles.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="trad-when-box">
+                            <strong>¿Cuándo elegir el Modelo en V?</strong>
+                            <span>Sistemas de misión crítica donde una falla pone en riesgo vidas humanas o activos estratégicos: software médico implantable, aviónica, sistemas ferroviarios, frenos ABS automotrices y defensa.</span>
+                        </div>
+                    </article>
+
+                    <!-- MODELO 3: ITERATIVO E INCREMENTAL -->
+                    <article class="trad-model-card" data-model-id="iterativo">
+                        <div class="trad-model-header">
+                            <div class="trad-model-title-group">
+                                <span class="trad-model-tag">Puente Evolutivo hacia la Agilidad • RUP / Evo / Espiral</span>
+                                <h3>3. Modelo Iterativo e Incremental</h3>
+                            </div>
+                            <span class="badge" style="background: rgba(245, 158, 11, 0.15); color: #F59E0B;">Mitigación Temprana de Riesgos</span>
+                        </div>
+
+                        <p class="trad-model-summary">
+                            Combina ciclos repetitivos de refinamiento (<strong>iterativo</strong>) con la construcción progresiva de bloques funcionales del producto (<strong>incremental</strong>). En lugar de entregar todo el sistema al final, divide el proyecto en mini-cascadas que producen versiones operativas cada vez más completas.
+                        </p>
+
+                        <!-- Flujo de ciclos -->
+                        <div class="trad-flow-diagram" aria-label="Ciclos del Modelo Iterativo e Incremental">
+                            <span class="trad-flow-step">Arquitectura Base</span>
+                            <span class="trad-flow-arrow" aria-hidden="true">→</span>
+                            <span class="trad-flow-step">Iteración 1 (Núcleo Crítico)</span>
+                            <span class="trad-flow-arrow" aria-hidden="true">→</span>
+                            <span class="trad-flow-step">Iteración 2 (Módulos Secundarios)</span>
+                            <span class="trad-flow-arrow" aria-hidden="true">→</span>
+                            <span class="trad-flow-step">Iteración N (Refinamiento y Entrega Final)</span>
+                        </div>
+
+                        <!-- Bloques comparativos: Ventajas (Verde) vs Desventajas (Rojo) -->
+                        <div class="trad-pros-cons-grid">
+                            <div class="trad-box-pros">
+                                <h4>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                    Ventajas Principales
+                                </h4>
+                                <ul>
+                                    <li>Entrega temprana de funcionalidad operativa para los módulos de mayor valor o riesgo técnico.</li>
+                                    <li>Permite incorporar retroalimentación de los usuarios al finalizar cada iteración sin esperar al final del año.</li>
+                                    <li>Las pruebas e integraciones se realizan de forma progresiva en cada incremento, reduciendo fallas masivas.</li>
+                                    <li>Menor riesgo de fracaso total del proyecto en comparación con el modelo en cascada puro.</li>
+                                </ul>
+                            </div>
+
+                            <div class="trad-box-cons">
+                                <h4>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                                    Desventajas y Riesgos
+                                </h4>
+                                <ul>
+                                    <li>Requiere diseñar una arquitectura inicial sólida para que los nuevos incrementos no rompan los anteriores.</li>
+                                    <li>Exige pruebas de regresión continuas en cada ciclo para asegurar que lo ya entregado siga funcionando.</li>
+                                    <li>Mayor complejidad de gestión de configuración y versiones que el modelo lineal simple.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="trad-when-box">
+                            <strong>¿Cuándo elegir el Modelo Iterativo e Incremental?</strong>
+                            <span>Sistemas corporativos grandes o plataformas modulares (ERP, portales bancarios) donde la visión general está clara, pero se desea entregar valor por fases y validar la arquitectura desde la primera iteración.</span>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
@@ -1104,28 +1458,30 @@
                 <div class="footer-links">
                     <h4>Módulo Ágil</h4>
                     <ul>
-                        <li><a href="#manifiesto">Manifiesto Ágil</a></li>
-                        <li><a href="#ilustraciones">Ilustraciones SVG</a></li>
-                        <li><a href="#scrum">Scrum en Detalle</a></li>
-                        <li><a href="#kanban">Tablero Kanban</a></li>
-                        <li><a href="#comparador">Comparador</a></li>
-                        <li><a href="#asistente">Encuesta de Preferencias</a></li>
+                        <li><a href="#sdlc">Ciclo de Vida SDLC (US-05)</a></li>
+                        <li><a href="#tradicionales">Modelos Tradicionales (US-06)</a></li>
+                        <li><a href="#manifiesto">Manifiesto Ágil (US-08)</a></li>
+                        <li><a href="#scrum">Scrum en Detalle (US-10)</a></li>
+                        <li><a href="#kanban">Tablero Kanban (US-11)</a></li>
+                        <li><a href="#comparador">Comparador (US-18)</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
-                    <h4>Módulo Calidad</h4>
+                    <h4>Módulo Calidad & Recursos</h4>
                     <ul>
-                        <li><a href="calidad.html#fundamentos">Fundamentos ISO</a></li>
-                        <li><a href="calidad.html#tecnicas">Técnicas QA</a></li>
-                        <li><a href="calidad.html#herramientas">Herramientas QA</a></li>
+                        <li><a href="calidad.html#fundamentos">Fundamentos ISO (US-02)</a></li>
+                        <li><a href="calidad.html#tecnicas">Técnicas QA (US-03)</a></li>
+                        <li><a href="recursos.html#glosario">Glosario Interactivo (US-12)</a></li>
+                        <li><a href="recursos.html#ejercicios">Casos Prácticos (US-15)</a></li>
+                        <li><a href="recursos.html#enlaces">Enlaces de Interés (US-14)</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
                     <h4>Equipo & Soporte</h4>
                     <ul>
-                        <li><a href="nosotros.html">Sobre VELORA</a></li>
-                        <li><a href="nosotros.html#contacto">Formulario de Contacto</a></li>
-                        <li><a href="#">Accesibilidad WCAG</a></li>
+                        <li><a href="nosotros.html">Sobre VELORA (US-16)</a></li>
+                        <li><a href="nosotros.html#contacto">Formulario de Contacto (US-17)</a></li>
+                        <li><a href="#faq">Preguntas Frecuentes (US-13)</a></li>
                     </ul>
                 </div>
             </div>
@@ -1136,7 +1492,7 @@
         </div>
     </footer>
 
-    <!-- Scripts modulares consolidados (Sprint 2) -->
+    <!-- Scripts modulares consolidados -->
     <script src="js/navbar.js"></script>
     <script src="js/agile.js"></script>
     <script src="js/comparator.js"></script>
