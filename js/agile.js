@@ -467,7 +467,7 @@ function initSdlcAndTraditional() {
     if (tradTabs.length && tradPanels.length) {
         function selectTradModel(filterKey, focusTab) {
             tradTabs.forEach(btn => {
-                const isSelected = btn.getAttribute('data-trad-model') === filterKey;
+                const isSelected = btn.getAttribute('data-trad-target') === filterKey;
                 btn.classList.toggle('active', isSelected);
                 btn.setAttribute('aria-selected', isSelected ? 'true' : 'false');
                 if (isSelected && focusTab) btn.focus();
@@ -482,17 +482,17 @@ function initSdlcAndTraditional() {
 
         tradTabs.forEach((btn, idx) => {
             btn.addEventListener('click', () => {
-                selectTradModel(btn.getAttribute('data-trad-model'), false);
+                selectTradModel(btn.getAttribute('data-trad-target'), false);
             });
             btn.addEventListener('keydown', (e) => {
                 if (e.key === 'ArrowRight') {
                     e.preventDefault();
                     const next = tradTabs[(idx + 1) % tradTabs.length];
-                    selectTradModel(next.getAttribute('data-trad-model'), true);
+                    selectTradModel(next.getAttribute('data-trad-target'), true);
                 } else if (e.key === 'ArrowLeft') {
                     e.preventDefault();
                     const prev = tradTabs[(idx - 1 + tradTabs.length) % tradTabs.length];
-                    selectTradModel(prev.getAttribute('data-trad-model'), true);
+                    selectTradModel(prev.getAttribute('data-trad-target'), true);
                 }
             });
         });
