@@ -194,23 +194,44 @@
         padding: 1.25rem 1rem;
     }
 
+    .glossary-letter {
+        min-width: 42px;
+        height: 42px;
+    }
+
+    .glossary-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 580px) {
     .glossary-alphabet {
         flex-wrap: nowrap;
         justify-content: flex-start;
         overflow-x: auto;
-        scrollbar-width: thin;
-        padding-bottom: 0.4rem;
+        scrollbar-width: none;
+        padding-bottom: 0.25rem;
         -webkit-overflow-scrolling: touch;
+    }
+
+    .glossary-alphabet::-webkit-scrollbar {
+        display: none;
     }
 
     .glossary-letter {
         flex-shrink: 0;
-        min-width: 40px;
-        height: 40px;
+        min-width: 44px;
+        height: 44px;
     }
 
     .glossary-grid {
         grid-template-columns: 1fr;
+    }
+
+    .glossary-search .form-input {
+        font-size: 0.85rem;
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
     }
 }
 
@@ -633,7 +654,7 @@
 
 @media (max-width: 768px) {
     .links-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
     .exercises-toolbar,
     .links-toolbar {
@@ -642,5 +663,11 @@
     }
     .exercise-card {
         padding: 1.35rem;
+    }
+}
+
+@media (max-width: 580px) {
+    .links-grid {
+        grid-template-columns: 1fr;
     }
 }

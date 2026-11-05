@@ -18,7 +18,6 @@ header {
 }
 
 header.scrolled {
-    padding: 0.25rem 0;
     background: rgba(255, 255, 255, 0.96);
     box-shadow: var(--shadow-sm);
 }
@@ -240,8 +239,8 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     border: 1px solid var(--border-color);
     border-radius: var(--radius-sm);
     background: transparent;
@@ -320,7 +319,8 @@ nav {
     font-size: 0.85rem;
     font-weight: 600;
     color: var(--text-muted);
-    padding: 0.35rem 0.85rem;
+    padding: 0.45rem 0.9rem;
+    min-height: 40px;
     border-radius: var(--radius-pill);
     border: 1px solid transparent;
     transition: var(--transition-smooth);
@@ -354,18 +354,18 @@ main section[id] {
 /* ---- Mobile Nav ---- */
 .mobile-nav {
     position: fixed;
-    top: 0;
+    top: 72px;
     right: 0;
     width: 100%;
-    height: 100vh;
-    height: 100dvh;
+    height: calc(100vh - 72px);
+    height: calc(100dvh - 72px);
     background: var(--bg-main);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     gap: 1.25rem;
-    padding: 95px 1.5rem 2.5rem;
+    padding: 1.5rem 1.5rem 2.5rem;
     transform: translateX(100%);
     visibility: hidden;
     opacity: 0;
@@ -450,11 +450,13 @@ main section[id] {
     font-size: 0.88rem !important;
     font-weight: 500 !important;
     color: var(--text-muted) !important;
-    padding: 0.4rem 0.75rem !important;
+    padding: 0.55rem 0.75rem !important;
+    min-height: 44px;
     text-align: left !important;
     border-radius: var(--radius-sm);
     text-decoration: none;
-    display: block;
+    display: flex;
+    align-items: center;
 }
 
 .mobile-sublink:hover,
