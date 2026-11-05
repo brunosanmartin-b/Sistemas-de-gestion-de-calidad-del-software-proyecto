@@ -1,0 +1,82 @@
+From c32ff0625155d3b1e60cf529bcf61b600deedf07 Mon Sep 17 00:00:00 2001
+From: brunosanmartin-b <bsanmartin931@gmail.com>
+Date: Tue, 3 Nov 2026 00:38:15 +0000
+Subject: [PATCH 1/2] =?UTF-8?q?fix=20BUG-S2-01:=20navegaci=C3=B3n=20de=20M?=
+ =?UTF-8?q?odelos=20Tradicionales=20(US-06)?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+agile.js leía data-trad-model, pero los botones de metodologias.html usan
+data-trad-target; al hacer clic se ocultaban los 3 modelos.
+---
+ js/agile.js | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/js/agile.js b/js/agile.js
+index dc7e65b..e7a06e6 100644
+--- a/js/agile.js
++++ b/js/agile.js
+@@ -467,7 +467,7 @@ function initSdlcAndTraditional() {
+     if (tradTabs.length && tradPanels.length) {
+         function selectTradModel(filterKey, focusTab) {
+             tradTabs.forEach(btn => {
+-                const isSelected = btn.getAttribute('data-trad-model') === filterKey;
++                const isSelected = btn.getAttribute('data-trad-target') === filterKey;
+                 btn.classList.toggle('active', isSelected);
+                 btn.setAttribute('aria-selected', isSelected ? 'true' : 'false');
+                 if (isSelected && focusTab) btn.focus();
+@@ -482,17 +482,17 @@ function initSdlcAndTraditional() {
+ 
+         tradTabs.forEach((btn, idx) => {
+             btn.addEventListener('click', () => {
+-                selectTradModel(btn.getAttribute('data-trad-model'), false);
++                selectTradModel(btn.getAttribute('data-trad-target'), false);
+             });
+             btn.addEventListener('keydown', (e) => {
+                 if (e.key === 'ArrowRight') {
+                     e.preventDefault();
+                     const next = tradTabs[(idx + 1) % tradTabs.length];
+-                    selectTradModel(next.getAttribute('data-trad-model'), true);
++                    selectTradModel(next.getAttribute('data-trad-target'), true);
+                 } else if (e.key === 'ArrowLeft') {
+                     e.preventDefault();
+                     const prev = tradTabs[(idx - 1 + tradTabs.length) % tradTabs.length];
+-                    selectTradModel(prev.getAttribute('data-trad-model'), true);
++                    selectTradModel(prev.getAttribute('data-trad-target'), true);
+                 }
+             });
+         });
+-- 
+2.43.0
+
+
+From 632cd05e8e5ba05244698ee2c1c274d36d87d1f4 Mon Sep 17 00:00:00 2001
+From: brunosanmartin-b <bsanmartin931@gmail.com>
+Date: Tue, 3 Nov 2026 00:38:15 +0000
+Subject: [PATCH 2/2] =?UTF-8?q?fix=20OBS-S2-01:=20label=20con=20for=20expl?=
+ =?UTF-8?q?=C3=ADcito=20en=20la=20casilla=20de=20t=C3=A9rminos=20(US-17)?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+---
+ nosotros.html | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/nosotros.html b/nosotros.html
+index cbedafb..4a72760 100644
+--- a/nosotros.html
++++ b/nosotros.html
+@@ -337,7 +337,7 @@
+ 
+                             <!-- Aceptación -->
+                             <div class="form-group form-full">
+-                                <label class="form-checkbox-label">
++                                <label class="form-checkbox-label" for="contactTerms">
+                                     <input type="checkbox" id="contactTerms" class="form-checkbox" required>
+                                     <span>Acepto el tratamiento de estos datos exclusivamente con fines académicos del proyecto SGCS 2026.</span>
+                                 </label>
+-- 
+2.43.0
+
