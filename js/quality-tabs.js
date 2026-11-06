@@ -17,7 +17,8 @@ function initQualityTabs() {
         tabPanels.forEach(panel => {
             const isActive = panel.id === targetId;
             panel.classList.toggle('active', isActive);
-            panel.setAttribute('hidden', !isActive);
+            // La propiedad agrega o quita el atributo; setAttribute('hidden', false) lo dejaba puesto
+            panel.hidden = !isActive;
         });
     }
 

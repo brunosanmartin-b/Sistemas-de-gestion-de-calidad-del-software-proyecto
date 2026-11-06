@@ -223,6 +223,23 @@
     color: var(--accent);
 }
 
+/* Enlace al tablero Scrum del proyecto */
+.team-board-link {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.team-board-link p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.team-board-link .btn {
+    white-space: normal;
+    min-height: 44px;
+}
+
 /* ---- Tab Component (US-02) ---- */
 .tabs-container {
     margin-top: var(--space-lg);
